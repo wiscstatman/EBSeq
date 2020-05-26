@@ -41,5 +41,8 @@ MultiPP = GetMultiPP(MultiOut)
 
 More details and examples can be found in `vignettes`
 
+Reference for the package can be found at "link to Bioarchive"
+
+Analysis is available at https://github.com/wiscstatman/bigEB
 
 
