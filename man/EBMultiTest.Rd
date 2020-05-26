@@ -73,6 +73,7 @@ in 50 iterations, larger number is suggested.}
 \item{Var}{The estimated variance of each transcript within the two conditions (adjusted by normalization factors).}
 \item{PoolVar}{The variance of each transcript (The pooled value of within condition EstVar).}
 \item{DataNorm}{Normalized expression matrix.}
+\item{Iso}{same as NgVector}
 \item{AllZeroIndex}{The transcript with expression 0 for all samples (which are not tested).}
 \item{PPMat}{The Posterior Probability of following each pattern (columns) for each transcript (rows). 
 Transcripts with expression 0 for all samples are not shown in this matrix.}
