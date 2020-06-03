@@ -1,6 +1,6 @@
 CHANGES IN VERSION 2.0.0
 ------------------------
-
+    o A new implementation of the core functions EBTest and EBMultiTest, which scales up the computation for big number of conditions to compare. 
 
 
 CHANGES IN VERSION 1.11.1
