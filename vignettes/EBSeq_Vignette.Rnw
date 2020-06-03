@@ -10,7 +10,7 @@
 \begin{document}
 \SweaveOpts{concordance=TRUE}
 \title{EBSeq: An R package for differential expression analysis using RNA-seq data}
-\author{Ning Leng, John Dawson, and Christina Kendziorski}
+\author{Ning Leng, John Dawson, Xiuyu Ma, Michael A. Newton, and Christina Kendziorski}
 \maketitle
 \tableofcontents
 \setcounter{tocdepth}{2}
