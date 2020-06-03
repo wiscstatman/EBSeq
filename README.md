@@ -4,7 +4,7 @@
 You can install EBSeq.v2 from github with:
 ```
 # install.packages("devtools")
-devtools::install_github("wiscstatman/bigEB/tree/master/EBSeqNew")
+devtools::install_github("wiscstatman/EBSeqNew")
 ```
 
 
