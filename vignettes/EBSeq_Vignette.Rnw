@@ -40,8 +40,10 @@ false discoveries in the $I_g=2$ and $I_g=3$ groups (since the true variances ar
 than those derived from the full collection). EBSeq directly models differential variability
 as a function of $I_g$ providing a powerful approach for isoform level inference. As shown in Leng {\it et al.}, 2013
 \cite{Leng13}, the model is also useful for identifying DE genes.
+One bottleneck of the model is that the number of DE patterns is growing factorially with the number of conditions($K$) for comparison (Bell number), which makes the computation infeasible for big $K$. In EBSeq.2, we provide a pruning scheme by removing those unlikely patterns and greatly reducing the size of patterns. We utilize a one-step EM and rewrite the code in C++ for further efficiency.
 We will briefly detail the model in Section \ref{sec:model} and then describe
 the flow of analysis in Section \ref{sec:quickstart} for both isoform and gene-level inference.
+
 
 \begin{figure}[t]
 \centering
