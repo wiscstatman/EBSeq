@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  8 JUN 2020 14:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  8 JUN 2020 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -595,133 +595,139 @@ Package pdftex.def Info: EBSeq_Vignette-021.pdf  used on input line 796.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14] [15 <./EBSeq_Vignette-021.pdf>] [16] [17]
-<EBSeq_Vignette-023.pdf, id=325, 433.62pt x 433.62pt>
+[14] [15 <./EBSeq_Vignette-021.pdf>]
+<EBSeq_Vignette-023.pdf, id=317, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-023.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-023.pdf>
-Package pdftex.def Info: EBSeq_Vignette-023.pdf  used on input line 983.
+Package pdftex.def Info: EBSeq_Vignette-023.pdf  used on input line 858.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18]
-<EBSeq_Vignette-024.pdf, id=332, 433.62pt x 433.62pt>
+[16]
+<EBSeq_Vignette-024.pdf, id=324, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-024.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-024.pdf>
-Package pdftex.def Info: EBSeq_Vignette-024.pdf  used on input line 1004.
+Package pdftex.def Info: EBSeq_Vignette-024.pdf  used on input line 879.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19 <./EBSeq_Vignette-023.pdf>] [20 <./EBSeq_Vignette-024.pdf>] [21] [22]
-<EBSeq_Vignette-032.pdf, id=370, 433.62pt x 433.62pt>
+[17 <./EBSeq_Vignette-023.pdf>] [18 <./EBSeq_Vignette-024.pdf>] [19]
+<EBSeq_Vignette-032.pdf, id=358, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-032.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-032.pdf>
-Package pdftex.def Info: EBSeq_Vignette-032.pdf  used on input line 1223.
+Package pdftex.def Info: EBSeq_Vignette-032.pdf  used on input line 1071.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[23]
-<EBSeq_Vignette-033.pdf, id=378, 433.62pt x 433.62pt>
+[20]
+<EBSeq_Vignette-033.pdf, id=365, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-033.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-033.pdf>
-Package pdftex.def Info: EBSeq_Vignette-033.pdf  used on input line 1251.
+Package pdftex.def Info: EBSeq_Vignette-033.pdf  used on input line 1099.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[24 <./EBSeq_Vignette-032.pdf>]
-<EBSeq_Vignette-034.pdf, id=390, 433.62pt x 433.62pt>
+[21 <./EBSeq_Vignette-032.pdf>]
+<EBSeq_Vignette-034.pdf, id=377, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-034.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-034.pdf>
-Package pdftex.def Info: EBSeq_Vignette-034.pdf  used on input line 1269.
+Package pdftex.def Info: EBSeq_Vignette-034.pdf  used on input line 1117.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[25 <./EBSeq_Vignette-033.pdf>]
-<EBSeq_Vignette-035.pdf, id=403, 433.62pt x 433.62pt>
+[22 <./EBSeq_Vignette-033.pdf>]
+<EBSeq_Vignette-035.pdf, id=389, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-035.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-035.pdf>
-Package pdftex.def Info: EBSeq_Vignette-035.pdf  used on input line 1286.
+Package pdftex.def Info: EBSeq_Vignette-035.pdf  used on input line 1134.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[26 <./EBSeq_Vignette-034.pdf>] [27 <./EBSeq_Vignette-035.pdf>]
-<EBSeq_Vignette-038.pdf, id=427, 433.62pt x 433.62pt>
+[23 <./EBSeq_Vignette-034.pdf>] [24 <./EBSeq_Vignette-035.pdf>]
+<EBSeq_Vignette-038.pdf, id=412, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-038.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-038.pdf>
-Package pdftex.def Info: EBSeq_Vignette-038.pdf  used on input line 1379.
+Package pdftex.def Info: EBSeq_Vignette-038.pdf  used on input line 1227.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[28
+[25
 
-] [29 <./EBSeq_Vignette-038.pdf>]
-<EBSeq_Vignette-040.pdf, id=442, 433.62pt x 433.62pt>
+] [26 <./EBSeq_Vignette-038.pdf>]
+<EBSeq_Vignette-040.pdf, id=429, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-040.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-040.pdf>
-Package pdftex.def Info: EBSeq_Vignette-040.pdf  used on input line 1432.
+Package pdftex.def Info: EBSeq_Vignette-040.pdf  used on input line 1280.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<EBSeq_Vignette-041.pdf, id=443, 433.62pt x 433.62pt>
+<EBSeq_Vignette-041.pdf, id=430, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-041.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-041.pdf>
-Package pdftex.def Info: EBSeq_Vignette-041.pdf  used on input line 1445.
+Package pdftex.def Info: EBSeq_Vignette-041.pdf  used on input line 1293.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[30] [31 <./EBSeq_Vignette-040.pdf>] [32 <./EBSeq_Vignette-041.pdf>] [33
+[27] [28 <./EBSeq_Vignette-040.pdf>] [29 <./EBSeq_Vignette-041.pdf>] [30
 
 ]
-<EBSeq_Vignette-045.pdf, id=476, 433.62pt x 433.62pt>
+<EBSeq_Vignette-045.pdf, id=462, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-045.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-045.pdf>
-Package pdftex.def Info: EBSeq_Vignette-045.pdf  used on input line 1581.
+Package pdftex.def Info: EBSeq_Vignette-045.pdf  used on input line 1429.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34] [35 <./EBSeq_Vignette-045.pdf>]
-<EBSeq_Vignette-046.pdf, id=491, 433.62pt x 433.62pt>
+[31] [32 <./EBSeq_Vignette-045.pdf>]
+<EBSeq_Vignette-046.pdf, id=478, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-046.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-046.pdf>
-Package pdftex.def Info: EBSeq_Vignette-046.pdf  used on input line 1604.
+Package pdftex.def Info: EBSeq_Vignette-046.pdf  used on input line 1452.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
-<EBSeq_Vignette-047.pdf, id=492, 433.62pt x 433.62pt>
+<EBSeq_Vignette-047.pdf, id=479, 433.62pt x 433.62pt>
 File: EBSeq_Vignette-047.pdf Graphic file (type pdf)
 <use EBSeq_Vignette-047.pdf>
-Package pdftex.def Info: EBSeq_Vignette-047.pdf  used on input line 1619.
+Package pdftex.def Info: EBSeq_Vignette-047.pdf  used on input line 1467.
 (pdftex.def)             Requested size: 375.80544pt x 375.8238pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[36 <./EBSeq_Vignette-046.pdf>] [37 <./EBSeq_Vignette-047.pdf>] [38
+[33 <./EBSeq_Vignette-046.pdf>] [34 <./EBSeq_Vignette-047.pdf>] [35
 
-] [39]
-[40] [41] (./EBSeq_Vignette.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1891.
- [42]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1891.
+] [36]
+[37]
+Overfull \hbox (24.68433pt too wide) in paragraph at lines 1686--1687
+[]\T1/aer/m/n/10 In EB-Seq 1.28.0 avail-able on Bio-con-duc-tor: https://biocon
+ductor.org/packages/release/bioc/html/EBSeq.html 
+ []
+
+[38] (./EBSeq_Vignette.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1757.
+ [39]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1757.
  (./EBSeq_Vignette.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1891.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1891.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1757.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1757.
 
 Package rerunfilecheck Info: File `EBSeq_Vignette.out' has not changed.
 (rerunfilecheck)             Checksum: 4F01F2746DDC9CD9F0F5E3ABB3084037;2242.
@@ -729,11 +735,11 @@ Package rerunfilecheck Info: File `EBSeq_Vignette.out' has not changed.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1891.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1757.
  ) 
 Here is how much of TeX's memory you used:
- 7638 strings out of 492649
- 110839 string characters out of 6129622
+ 7635 strings out of 492649
+ 110818 string characters out of 6129622
  207626 words of memory out of 5000000
  11248 multiletter control sequences out of 15000+600000
  33323 words of font info for 70 fonts, out of 8000000 for 9000
@@ -755,10 +761,10 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
 e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/
 2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on EBSeq_Vignette.pdf (42 pages, 1219187 bytes).
+Output written on EBSeq_Vignette.pdf (39 pages, 1215063 bytes).
 PDF statistics:
- 630 PDF objects out of 1000 (max. 8388607)
- 535 compressed objects within 6 object streams
- 120 named destinations out of 1000 (max. 500000)
+ 618 PDF objects out of 1000 (max. 8388607)
+ 526 compressed objects within 6 object streams
+ 117 named destinations out of 1000 (max. 500000)
  299 words of extra memory for PDF output out of 10000 (max. 10000000)
 

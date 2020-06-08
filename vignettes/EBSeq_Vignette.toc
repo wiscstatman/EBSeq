@@ -21,28 +21,28 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Running EBSeq on simulated gene expression estimates}{14}{subsubsection.5.1.1}
 \contentsline {subsubsection}{\numberline {5.1.2}Calculating FC}{14}{subsubsection.5.1.2}
 \contentsline {subsubsection}{\numberline {5.1.3}Checking convergence}{15}{subsubsection.5.1.3}
-\contentsline {subsubsection}{\numberline {5.1.4}Checking the model fit and other diagnostics}{18}{subsubsection.5.1.4}
-\contentsline {subsection}{\numberline {5.2}Isoform level DE analysis (two conditions)}{20}{subsection.5.2}
-\contentsline {subsubsection}{\numberline {5.2.1}The $I_g$ vector}{20}{subsubsection.5.2.1}
-\contentsline {subsubsection}{\numberline {5.2.2}Using mappability ambiguity clusters instead of the $I_g$ vector when the gene-isoform relationship is unknown}{21}{subsubsection.5.2.2}
-\contentsline {subsubsection}{\numberline {5.2.3}Running EBSeq on simulated isoform expression estimates}{21}{subsubsection.5.2.3}
-\contentsline {subsubsection}{\numberline {5.2.4}Checking convergence}{22}{subsubsection.5.2.4}
-\contentsline {subsubsection}{\numberline {5.2.5}Checking the model fit and other diagnostics}{23}{subsubsection.5.2.5}
-\contentsline {subsection}{\numberline {5.3}Gene level DE analysis (more than two conditions)}{28}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Isoform level DE analysis (more than two conditions)}{33}{subsection.5.4}
-\contentsline {subsection}{\numberline {5.5}Working without replicates}{38}{subsection.5.5}
-\contentsline {subsubsection}{\numberline {5.5.1}Gene counts with two conditions}{38}{subsubsection.5.5.1}
-\contentsline {subsubsection}{\numberline {5.5.2}Isoform counts with two conditions}{38}{subsubsection.5.5.2}
-\contentsline {subsubsection}{\numberline {5.5.3}Gene counts with more than two conditions}{39}{subsubsection.5.5.3}
-\contentsline {subsubsection}{\numberline {5.5.4}Isoform counts with more than two conditions}{39}{subsubsection.5.5.4}
-\contentsline {section}{\numberline {6}EBSeq pipelines and extensions}{40}{section.6}
-\contentsline {subsection}{\numberline {6.1}RSEM-EBSeq pipeline: from raw reads to differential expression analysis results}{40}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}EBSeq interface: A user-friendly graphical interface for differetial expression analysis}{40}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}EBSeq Galaxy tool shed}{40}{subsection.6.3}
-\contentsline {section}{\numberline {7}Acknowledgment}{40}{section.7}
-\contentsline {section}{\numberline {8}News}{40}{section.8}
-\contentsline {section}{\numberline {9}Common Q and A}{41}{section.9}
-\contentsline {subsection}{\numberline {9.1}Read in data}{41}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}GetDEResults() function not found}{41}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Visualizing DE genes/isoforms}{41}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}My favorite gene/isoform has NA in PP (status "NoTest")}{41}{subsection.9.4}
+\contentsline {subsubsection}{\numberline {5.1.4}Checking the model fit and other diagnostics}{16}{subsubsection.5.1.4}
+\contentsline {subsection}{\numberline {5.2}Isoform level DE analysis (two conditions)}{18}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}The $I_g$ vector}{18}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Using mappability ambiguity clusters instead of the $I_g$ vector when the gene-isoform relationship is unknown}{19}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}Running EBSeq on simulated isoform expression estimates}{19}{subsubsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.4}Checking convergence}{20}{subsubsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.5}Checking the model fit and other diagnostics}{20}{subsubsection.5.2.5}
+\contentsline {subsection}{\numberline {5.3}Gene level DE analysis (more than two conditions)}{25}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Isoform level DE analysis (more than two conditions)}{30}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Working without replicates}{35}{subsection.5.5}
+\contentsline {subsubsection}{\numberline {5.5.1}Gene counts with two conditions}{35}{subsubsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.2}Isoform counts with two conditions}{35}{subsubsection.5.5.2}
+\contentsline {subsubsection}{\numberline {5.5.3}Gene counts with more than two conditions}{36}{subsubsection.5.5.3}
+\contentsline {subsubsection}{\numberline {5.5.4}Isoform counts with more than two conditions}{36}{subsubsection.5.5.4}
+\contentsline {section}{\numberline {6}EBSeq pipelines and extensions}{37}{section.6}
+\contentsline {subsection}{\numberline {6.1}RSEM-EBSeq pipeline: from raw reads to differential expression analysis results}{37}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}EBSeq interface: A user-friendly graphical interface for differetial expression analysis}{37}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}EBSeq Galaxy tool shed}{37}{subsection.6.3}
+\contentsline {section}{\numberline {7}Acknowledgment}{37}{section.7}
+\contentsline {section}{\numberline {8}News}{37}{section.8}
+\contentsline {section}{\numberline {9}Common Q and A}{38}{section.9}
+\contentsline {subsection}{\numberline {9.1}Read in data}{38}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}GetDEResults() function not found}{38}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Visualizing DE genes/isoforms}{38}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}My favorite gene/isoform has NA in PP (status "NoTest")}{38}{subsection.9.4}
