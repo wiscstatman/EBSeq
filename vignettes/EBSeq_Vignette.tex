@@ -484,37 +484,13 @@ In analysis where the data are spread over more than two conditions,
 the set of possible patterns for each gene is more complicated
 than simply EE and DE. As noted in Section \ref{sec:model}, when we have 3 conditions, there are 5 expression
 patterns to consider. In the simulated data, we have 6 samples, 2 in each of 3 conditions.
-The function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions. For example:
-
 \begin{Schunk}
 \begin{Sinput}
 > Conditions=c("C1","C1","C2","C2","C3","C3")
-> PosParti=GetPatterns(Conditions)
-> PosParti
-\end{Sinput}
-\begin{Soutput}
-         C1 C2 C3
-Pattern1  1  1  1
-Pattern2  1  1  2
-Pattern3  1  2  1
-Pattern4  1  2  2
-Pattern5  1  2  3
-\end{Soutput}
-\end{Schunk}
-
-\noindent where the first row means all three conditions have the same latent mean expression level; 
-the second row means C1 and C2 have the same latent mean expression level but that of C3 is different; 
-and the last row corresponds to the case where the three conditions all have different latent mean expression levels.
-% The user may use all or only some of these possible patterns as an input to \verb+EBMultiTest+.
-% For example, if we were interested in Patterns 1, 2, 4 and 5 only, we'd define:
-\begin{Schunk}
-\begin{Sinput}
-> # Parti=PosParti[-3,]
-> #Parti
 \end{Sinput}
 \end{Schunk}
 
-Moving on to the analysis, \verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
+\verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
 Once this is done, the formal test is performed by \verb+EBMultiTest+. 
 \begin{Schunk}
 \begin{Sinput}
@@ -527,6 +503,26 @@ Initial number of DE patterns = 5
 Final number of DE patterns = 5
 \end{Soutput}
 \end{Schunk}
+The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
+
+\begin{Schunk}
+\begin{Sinput}
+> PosParti=GetPatterns(MultiOut)
+> PosParti
+\end{Sinput}
+\begin{Soutput}
+         C1 C2 C3
+Pattern1  1  2  3
+Pattern2  1  1  2
+Pattern3  1  2  2
+Pattern4  1  1  1
+Pattern5  1  2  1
+\end{Soutput}
+\end{Schunk}
+
+\noindent where the first row means all three conditions have distinct latent mean expression level; 
+the second row means C1 and C2 have the same latent mean expression level but that of C3 is different; 
+and the last row corresponds to the case where C1 and C3 have the same latent mean expression level but that of C2 is different.
 \noindent The posterior probability of being in each pattern for every gene is obtained by using the 
 function \verb+GetMultiPP+:
 \begin{Schunk}
@@ -603,44 +599,11 @@ and calculating the $N_g$'s.
 > Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
 \end{Sinput}
 \end{Schunk}
-Here we have 4 conditions, there are 15 expression
-patterns to consider. 
-The function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions. For example:
 
-\begin{Schunk}
-\begin{Sinput}
-> PosParti.4Cond=GetPatterns(Conditions)
-> PosParti.4Cond
-\end{Sinput}
-\begin{Soutput}
-          C1 C2 C3 C4
-Pattern1   1  1  1  1
-Pattern2   1  1  1  2
-Pattern3   1  1  2  1
-Pattern4   1  1  2  2
-Pattern5   1  2  1  1
-Pattern6   1  2  1  2
-Pattern7   1  2  2  1
-Pattern8   1  2  2  2
-Pattern9   1  1  2  3
-Pattern10  1  2  1  3
-Pattern11  1  2  2  3
-Pattern12  1  2  3  1
-Pattern13  1  2  3  2
-Pattern14  1  2  3  3
-Pattern15  1  2  3  4
-\end{Soutput}
-\end{Schunk}
 
-% \noindent 
-% If we were interested in Patterns 1, 2, 3, 8 and 15 only, we'd define:
-% <<>>=
-% Parti.4Cond=PosParti.4Cond[c(1,2,3,8,15),]
-% Parti.4Cond
-% @
 
 \noindent
-Moving on to the analysis, \verb+EBMultiTest+ could be used to perform the test:
+\verb+EBMultiTest+ could be used to perform the test:
 \begin{Schunk}
 \begin{Sinput}
 > IsoMultiOut=EBMultiTest(IsoMultiMat,
@@ -653,6 +616,31 @@ Initial number of DE patterns = 12
 Final number of DE patterns = 12
 \end{Soutput}
 \end{Schunk}
+
+The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
+
+\begin{Schunk}
+\begin{Sinput}
+> PosParti.4Cond=GetPatterns(IsoMultiOut)
+> PosParti.4Cond
+\end{Sinput}
+\begin{Soutput}
+          C1 C2 C3 C4
+Pattern1   1  1  1  2
+Pattern2   1  1  2  3
+Pattern3   1  2  2  3
+Pattern4   1  2  1  3
+Pattern5   1  2  3  4
+Pattern6   1  1  1  1
+Pattern7   1  2  1  2
+Pattern8   1  1  2  1
+Pattern9   1  2  1  1
+Pattern10  1  1  2  2
+Pattern11  1  2  2  2
+Pattern12  1  2  3  2
+\end{Soutput}
+\end{Schunk}
+
 \noindent The posterior probability of being in each pattern for every gene is obtained by using the 
 function \verb+GetMultiPP+:
 \begin{Schunk}
@@ -1305,47 +1293,13 @@ Better fitting should be expected while using full set of isoforms.)}
 \clearpage
 \subsection{Gene level DE analysis (more than two conditions)}
 \label{sec:detailedmulticond}
-As described in Section \ref{sec:startmulticond}, 
-the function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions.
-To visualize the patterns, the function \verb+PlotPattern+ may be used.
-
-\begin{figure}[h!]
-\centering
-\begin{Schunk}
-\begin{Sinput}
-> Conditions=c("C1","C1","C2","C2","C3","C3")
-> PosParti=GetPatterns(Conditions)
-> PosParti
-\end{Sinput}
-\begin{Soutput}
-         C1 C2 C3
-Pattern1  1  1  1
-Pattern2  1  1  2
-Pattern3  1  2  1
-Pattern4  1  2  2
-Pattern5  1  2  3
-\end{Soutput}
-\begin{Sinput}
-> PlotPattern(PosParti)
-\end{Sinput}
-\end{Schunk}
-\includegraphics{EBSeq_Vignette-036}
-\caption{ All possible patterns}
-\label{fig:Patterns}
-\end{figure}
-\newpage
-% \noindent If we were interested in Patterns 1, 2, 4 and 5 only, we'd define:
-% <<>>=
-% Parti=PosParti[-3,]
-% Parti
-% @
-
 \noindent 
-Moving on to the analysis, \verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
+\verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
 Once this is done, the formal test is performed by \verb+EBMultiTest+. 
 \begin{Schunk}
 \begin{Sinput}
 > data(MultiGeneMat)
+> Conditions=c("C1","C1","C2","C2","C3","C3")
 > MultiSize=MedianNorm(MultiGeneMat)
 > MultiOut=EBMultiTest(MultiGeneMat,
 + NgVector=NULL,Conditions=Conditions,
@@ -1399,6 +1353,34 @@ Pattern4  1  1  1
 Pattern5  1  2  1
 \end{Soutput}
 \end{Schunk}
+As described in Section \ref{sec:startmulticond}, 
+the function \verb+GetPatterns+ allows the user to get selected patterns after we run the \verb+EBMultiTest+ function
+To visualize the patterns, the function \verb+PlotPattern+ may be used.
+
+\begin{figure}[h!]
+\centering
+\begin{Schunk}
+\begin{Sinput}
+> PosParti=GetPatterns(MultiOut)
+> PosParti
+\end{Sinput}
+\begin{Soutput}
+         C1 C2 C3
+Pattern1  1  2  3
+Pattern2  1  1  2
+Pattern3  1  2  2
+Pattern4  1  1  1
+Pattern5  1  2  1
+\end{Soutput}
+\begin{Sinput}
+> PlotPattern(PosParti)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{EBSeq_Vignette-038}
+\caption{ Selected patterns, for this case, happens to be all possible patterns for 3 conditions}
+\label{fig:Patterns}
+\end{figure}
+\newpage
 \noindent where \verb+MultiPP$PP+ provides the posterior probability of being in each pattern for every gene. 
 \verb+MultiPP$MAP+ provides the most likely pattern of each gene based on the posterior 
 probabilities. \verb+MultiPP$Patterns+ provides the details of the patterns.  The FC and posterior FC for multiple condition data can
@@ -1471,61 +1453,11 @@ Better fitting should be expected while using full set of genes.)}
 \newpage
 \subsection{Isoform level DE analysis (more than two conditions)}
 \label{sec:detailedisomulticond}
-Similar to Section \ref{sec:startmulticond}, 
-the function \verb+GetPatterns+ allows a user to generate all possible patterns given the conditions.
-To visualize the patterns, the function \verb+PlotPattern+ may be used.
-\begin{Schunk}
-\begin{Sinput}
-> Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
-> PosParti.4Cond=GetPatterns(Conditions)
-> PosParti.4Cond
-\end{Sinput}
-\begin{Soutput}
-          C1 C2 C3 C4
-Pattern1   1  1  1  1
-Pattern2   1  1  1  2
-Pattern3   1  1  2  1
-Pattern4   1  1  2  2
-Pattern5   1  2  1  1
-Pattern6   1  2  1  2
-Pattern7   1  2  2  1
-Pattern8   1  2  2  2
-Pattern9   1  1  2  3
-Pattern10  1  2  1  3
-Pattern11  1  2  2  3
-Pattern12  1  2  3  1
-Pattern13  1  2  3  2
-Pattern14  1  2  3  3
-Pattern15  1  2  3  4
-\end{Soutput}
-\end{Schunk}
-\newpage
-\begin{figure}[h!]
-\centering
-\begin{Schunk}
-\begin{Sinput}
-> PlotPattern(PosParti.4Cond)
-> Parti.4Cond=PosParti.4Cond[c(1,2,3,8,15),]
-> Parti.4Cond
-\end{Sinput}
-\begin{Soutput}
-          C1 C2 C3 C4
-Pattern1   1  1  1  1
-Pattern2   1  1  1  2
-Pattern3   1  1  2  1
-Pattern8   1  2  2  2
-Pattern15  1  2  3  4
-\end{Soutput}
-\end{Schunk}
-\includegraphics{EBSeq_Vignette-043}
-\caption{All possible patterns for 4 conditions}
-\label{fig:Patterns4Cond}
-\end{figure}
 
-\newpage
 \begin{Schunk}
 \begin{Sinput}
 > data(IsoMultiList)
+> Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
 > IsoMultiMat=IsoMultiList[[1]]
 > IsoNames.Multi=IsoMultiList$IsoNames
 > IsosGeneNames.Multi=IsoMultiList$IsosGeneNames
@@ -1533,8 +1465,7 @@ Pattern15  1  2  3  4
 > NgList.Multi=GetNg(IsoNames.Multi, IsosGeneNames.Multi)
 > IsoNgTrun.Multi=NgList.Multi$IsoformNgTrun
 > IsoMultiOut=EBMultiTest(IsoMultiMat,NgVector=IsoNgTrun.Multi,Conditions=Conditions,
-+ AllParti=Parti.4Cond, 
-+ sizeFactors=IsoMultiSize, maxround=5)
++ sizeFactors=IsoMultiSize, uc = 2)
 > IsoMultiPP=GetMultiPP(IsoMultiOut)
 \end{Sinput}
 \end{Schunk}
@@ -1614,6 +1545,46 @@ Pattern12  1  2  3  2
 > IsoMultiFC=GetMultiFC(IsoMultiOut)
 \end{Sinput}
 \end{Schunk}
+
+Similar to Section \ref{sec:startmulticond}, 
+the function \verb+GetPatterns+ allows a user to get selected patterns.
+To visualize the patterns, the function \verb+PlotPattern+ may be used.
+\begin{Schunk}
+\begin{Sinput}
+> PosParti.4Cond=GetPatterns(IsoMultiOut)
+> PosParti.4Cond
+\end{Sinput}
+\begin{Soutput}
+          C1 C2 C3 C4
+Pattern1   1  1  1  2
+Pattern2   1  1  2  3
+Pattern3   1  2  2  3
+Pattern4   1  2  1  3
+Pattern5   1  2  3  4
+Pattern6   1  1  1  1
+Pattern7   1  2  1  2
+Pattern8   1  1  2  1
+Pattern9   1  2  1  1
+Pattern10  1  1  2  2
+Pattern11  1  2  2  2
+Pattern12  1  2  3  2
+\end{Soutput}
+\end{Schunk}
+
+\begin{figure}[h!]
+\centering
+\begin{Schunk}
+\begin{Sinput}
+> PlotPattern(PosParti.4Cond)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{EBSeq_Vignette-045}
+\caption{Selected patterns for 4 conditions}
+\label{fig:Patterns4Cond}
+\end{figure}
+\newpage
+
+
 The FC and posterior FC for multiple condition data can be obtained by the function \verb+GetMultiFC+:
 
 

@@ -378,31 +378,27 @@ In analysis where the data are spread over more than two conditions,
 the set of possible patterns for each gene is more complicated
 than simply EE and DE. As noted in Section \ref{sec:model}, when we have 3 conditions, there are 5 expression
 patterns to consider. In the simulated data, we have 6 samples, 2 in each of 3 conditions.
-The function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions. For example:
-
 <<>>=
 Conditions=c("C1","C1","C2","C2","C3","C3")
-PosParti=GetPatterns(Conditions)
-PosParti
 @
 
-\noindent where the first row means all three conditions have the same latent mean expression level; 
-the second row means C1 and C2 have the same latent mean expression level but that of C3 is different; 
-and the last row corresponds to the case where the three conditions all have different latent mean expression levels.
-% The user may use all or only some of these possible patterns as an input to \verb+EBMultiTest+.
-% For example, if we were interested in Patterns 1, 2, 4 and 5 only, we'd define:
-<<>>=
-# Parti=PosParti[-3,]
-#Parti
-@
-
-Moving on to the analysis, \verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
+\verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
 Once this is done, the formal test is performed by \verb+EBMultiTest+. 
 <<>>=
 MultiSize=MedianNorm(MultiGeneMat)
 MultiOut=EBMultiTest(MultiGeneMat,Conditions=Conditions,
  sizeFactors=MultiSize, uc = 2)
 @
+The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
+
+<<>>=
+PosParti=GetPatterns(MultiOut)
+PosParti
+@
+
+\noindent where the first row means all three conditions have distinct latent mean expression level; 
+the second row means C1 and C2 have the same latent mean expression level but that of C3 is different; 
+and the last row corresponds to the case where C1 and C3 have the same latent mean expression level but that of C2 is different.
 \noindent The posterior probability of being in each pattern for every gene is obtained by using the 
 function \verb+GetMultiPP+:
 <<>>=
@@ -439,30 +435,25 @@ NgList.Multi=GetNg(IsoNames.Multi, IsosGeneNames.Multi)
 IsoNgTrun.Multi=NgList.Multi$IsoformNgTrun
 Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
 @
-Here we have 4 conditions, there are 15 expression
-patterns to consider. 
-The function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions. For example:
 
-<<>>=
-PosParti.4Cond=GetPatterns(Conditions)
-PosParti.4Cond
-@
 
-% \noindent 
-% If we were interested in Patterns 1, 2, 3, 8 and 15 only, we'd define:
-% <<>>=
-% Parti.4Cond=PosParti.4Cond[c(1,2,3,8,15),]
-% Parti.4Cond
-% @
 
 \noindent
-Moving on to the analysis, \verb+EBMultiTest+ could be used to perform the test:
+\verb+EBMultiTest+ could be used to perform the test:
 <<>>=
 IsoMultiOut=EBMultiTest(IsoMultiMat,
 NgVector=IsoNgTrun.Multi,Conditions=Conditions,
 sizeFactors=IsoMultiSize, 
 uc = 2,nequal = 10)
 @
+
+The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
+
+<<>>=
+PosParti.4Cond=GetPatterns(IsoMultiOut)
+PosParti.4Cond
+@
+
 \noindent The posterior probability of being in each pattern for every gene is obtained by using the 
 function \verb+GetMultiPP+:
 <<>>=
@@ -770,33 +761,12 @@ Better fitting should be expected while using full set of isoforms.)}
 \clearpage
 \subsection{Gene level DE analysis (more than two conditions)}
 \label{sec:detailedmulticond}
-As described in Section \ref{sec:startmulticond}, 
-the function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions.
-To visualize the patterns, the function \verb+PlotPattern+ may be used.
-
-\begin{figure}[h!]
-\centering
-<<fig=TRUE>>=
-Conditions=c("C1","C1","C2","C2","C3","C3")
-PosParti=GetPatterns(Conditions)
-PosParti
-PlotPattern(PosParti)
-@
-\caption{ All possible patterns}
-\label{fig:Patterns}
-\end{figure}
-\newpage
-% \noindent If we were interested in Patterns 1, 2, 4 and 5 only, we'd define:
-% <<>>=
-% Parti=PosParti[-3,]
-% Parti
-% @
-
 \noindent 
-Moving on to the analysis, \verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
+\verb+MedianNorm+ or one of its competitors should be used to determine the normalization factors.
 Once this is done, the formal test is performed by \verb+EBMultiTest+. 
 <<eval=FALSE>>=
 data(MultiGeneMat)
+Conditions=c("C1","C1","C2","C2","C3","C3")
 MultiSize=MedianNorm(MultiGeneMat)
 MultiOut=EBMultiTest(MultiGeneMat,
 NgVector=NULL,Conditions=Conditions,
@@ -811,6 +781,21 @@ MultiPP$PP[1:10,]
 MultiPP$MAP[1:10]
 MultiPP$Patterns
 @
+As described in Section \ref{sec:startmulticond}, 
+the function \verb+GetPatterns+ allows the user to get selected patterns after we run the \verb+EBMultiTest+ function
+To visualize the patterns, the function \verb+PlotPattern+ may be used.
+
+\begin{figure}[h!]
+\centering
+<<fig=TRUE>>=
+PosParti=GetPatterns(MultiOut)
+PosParti
+PlotPattern(PosParti)
+@
+\caption{ Selected patterns, for this case, happens to be all possible patterns for 3 conditions}
+\label{fig:Patterns}
+\end{figure}
+\newpage
 \noindent where \verb+MultiPP$PP+ provides the posterior probability of being in each pattern for every gene. 
 \verb+MultiPP$MAP+ provides the most likely pattern of each gene based on the posterior 
 probabilities. \verb+MultiPP$Patterns+ provides the details of the patterns.  The FC and posterior FC for multiple condition data can
@@ -851,29 +836,10 @@ Better fitting should be expected while using full set of genes.)}
 \newpage
 \subsection{Isoform level DE analysis (more than two conditions)}
 \label{sec:detailedisomulticond}
-Similar to Section \ref{sec:startmulticond}, 
-the function \verb+GetPatterns+ allows a user to generate all possible patterns given the conditions.
-To visualize the patterns, the function \verb+PlotPattern+ may be used.
-<<>>=
-Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
-PosParti.4Cond=GetPatterns(Conditions)
-PosParti.4Cond
-@
-\newpage
-\begin{figure}[h!]
-\centering
-<<fig=TRUE>>=
-PlotPattern(PosParti.4Cond)
-Parti.4Cond=PosParti.4Cond[c(1,2,3,8,15),]
-Parti.4Cond
-@
-\caption{All possible patterns for 4 conditions}
-\label{fig:Patterns4Cond}
-\end{figure}
 
-\newpage
 <<eval=FALSE>>=
 data(IsoMultiList)
+Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
 IsoMultiMat=IsoMultiList[[1]]
 IsoNames.Multi=IsoMultiList$IsoNames
 IsosGeneNames.Multi=IsoMultiList$IsosGeneNames
@@ -881,8 +847,7 @@ IsoMultiSize=MedianNorm(IsoMultiMat)
 NgList.Multi=GetNg(IsoNames.Multi, IsosGeneNames.Multi)
 IsoNgTrun.Multi=NgList.Multi$IsoformNgTrun
 IsoMultiOut=EBMultiTest(IsoMultiMat,NgVector=IsoNgTrun.Multi,Conditions=Conditions,
-AllParti=Parti.4Cond, 
-sizeFactors=IsoMultiSize, maxround=5)
+sizeFactors=IsoMultiSize, uc = 2)
 IsoMultiPP=GetMultiPP(IsoMultiOut)
 @
 <<>>=
@@ -892,6 +857,26 @@ IsoMultiPP$MAP[1:10]
 IsoMultiPP$Patterns
 IsoMultiFC=GetMultiFC(IsoMultiOut)
 @
+
+Similar to Section \ref{sec:startmulticond}, 
+the function \verb+GetPatterns+ allows a user to get selected patterns.
+To visualize the patterns, the function \verb+PlotPattern+ may be used.
+<<>>=
+PosParti.4Cond=GetPatterns(IsoMultiOut)
+PosParti.4Cond
+@
+
+\begin{figure}[h!]
+\centering
+<<fig=TRUE>>=
+PlotPattern(PosParti.4Cond)
+@
+\caption{Selected patterns for 4 conditions}
+\label{fig:Patterns4Cond}
+\end{figure}
+\newpage
+
+
 The FC and posterior FC for multiple condition data can be obtained by the function \verb+GetMultiFC+:
 
 
