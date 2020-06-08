@@ -7,20 +7,20 @@ Generate all possible patterns in a multiple condition study
 'GetPatterns' generates all possible patterns in a multiple condition study.
 }
 \usage{
-GetPatterns(Conditions)
+GetPatterns(EBout)
 }
 \arguments{
-  \item{Conditions}{The names of the Conditions in the study.}
+  \item{EBout}{Results from EBMultiTest}
 }
 
-\value{A matrix describe all possible patterns. }
+\value{A matrix describe selected patterns. }
 
 \references{
 Ning Leng, John A. Dawson, James A. Thomson, Victor Ruotti, Anna I. Rissman, Bart M.G. Smits, Jill D. Haag, Michael N. Gould, Ron M. Stewart, and Christina Kendziorski. EBSeq: An empirical Bayes hierarchical model for inference in RNA-seq experiments. Bioinformatics (2013)
 }
 
 \author{
-Ning Leng
+Ning Leng, Xiuyu Ma
 }
 
 \examples{
