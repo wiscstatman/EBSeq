@@ -40,7 +40,7 @@ false discoveries in the $I_g=2$ and $I_g=3$ groups (since the true variances ar
 than those derived from the full collection). EBSeq directly models differential variability
 as a function of $I_g$ providing a powerful approach for isoform level inference. As shown in Leng {\it et al.}, 2013
 \cite{Leng13}, the model is also useful for identifying DE genes.
-One bottleneck of the model is that the number of DE patterns is growing factorially with the number of conditions($K$) for comparison (Bell number), which makes the computation infeasible for big $K$. In EBSeq.2, we provide a pruning scheme by removing those unlikely patterns and greatly reducing the size of patterns. We utilize a one-step EM and rewrite the code in C++ for further efficiency.
+One bottleneck of the model is that the number of DE patterns is growing factorially with the number of conditions($K$) for comparison (Bell number), which makes the computation infeasible for big $K$. To solve such issue, in EBSeq.2, we provide a pruning scheme by removing those unlikely patterns and thus greatly reducing the size of patterns, we also utilize a one-step EM for the hyper parameters optimization and rewrite the code in C++ for further efficiency.
 We will briefly detail the model in Section \ref{sec:model} and then describe
 the flow of analysis in Section \ref{sec:quickstart} for both isoform and gene-level inference.
 
@@ -1034,6 +1034,10 @@ EBSeq tool shed contains EBSeq wrappers for a local Galaxy implementation.
 For more details, see
 \url{http://www.biostat.wisc.edu/~ningleng/EBSeq_Package/EBSeq_Galaxy_toolshed/}
 
+\subsection{Scaling up EBSeq}
+There is a major update for the algorithm and code structure allowing EBSeq to deal with comparison among big number of conditions. 
+The reference paper can be found at "link to jss paper"
+
 \section{Acknowledgment}
 We would like to thank Haolin Xu for checking the package and
 proofreading the vignette.
@@ -1085,7 +1089,7 @@ In EBSeq 1.11.1 Fixed a bug in EBTest() which may cause error when performing is
 
 In EBSeq 1.28.0 available on Bioconductor: https://bioconductor.org/packages/release/bioc/html/EBSeq.html
 
-In EBSeq 2.0.0 A new implementation of the core functions EBTest and EBMultiTest, which scales up the computation for big number of conditions to compare. 
+2020-6-2: In EBSeq 2.0.0 A new implementation of the core functions EBTest and EBMultiTest, which scales up the computation for big number of conditions to compare. 
 
 \section{Common Q and A}
 \subsection{Read in data}
