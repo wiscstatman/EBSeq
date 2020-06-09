@@ -1029,10 +1029,10 @@ programming language. It takes .xls, .xlsx and .csv files as input.
 Additional packages need be downloaded; they may be found at
 \url{http://www.biostat.wisc.edu/~ningleng/EBSeq_Package/EBSeq_Interface/}
 
-\subsection{EBSeq Galaxy tool shed}
-EBSeq tool shed contains EBSeq wrappers for a local Galaxy implementation.
-For more details, see
-\url{http://www.biostat.wisc.edu/~ningleng/EBSeq_Package/EBSeq_Galaxy_toolshed/}
+%\subsection{EBSeq Galaxy tool shed}
+%EBSeq tool shed contains EBSeq wrappers for a local Galaxy implementation.
+%For more details, see
+%\url{http://www.biostat.wisc.edu/~ningleng/EBSeq_Package/EBSeq_Galaxy_toolshed/}
 
 \subsection{Scaling up EBSeq}
 There is a major update for the algorithm and code structure allowing EBSeq to deal with comparison among big number of conditions. 
