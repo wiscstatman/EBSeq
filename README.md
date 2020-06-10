@@ -14,13 +14,13 @@ devtools::install_github("wiscstatman/EBSeq")
 ```
 
 
-## Two conditions example
-Simulation data 
+## A synthetic two-group example
+ 
 ```
 data(GeneMat)
 str(GeneMat)
 ```
-`EBTest` is the function for two condition comparison. Most arguments of EBTest have default settings, expression data, condition label and size factors for normalization are required. If data is already normalized, then size factor for each sample is 1 and `sizeFactors = rep(1,ncol(Data))`, otherwise, we use median normalization to account for library size. 
+`EBTest` is the function for two-condition comparison. Most arguments of EBTest have default settings, expression data, condition label and size factors for normalization are required. If input data are normalized, then size factor for each sample is 1 and `sizeFactors = rep(1,ncol(Data))`, otherwise, we use median normalization to account for library size. 
 `GetPPMat` yields the posterior probabilities being equivalent expressed and differential expressed. 
 ```
 Sizes = MedianNorm(GeneMat)
@@ -29,8 +29,13 @@ EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),
 PP = GetPPMat(EBOut)
 ```
 
+The posterior probabilities in `PP` are specific to each gene (i.e., `local`) and to each pattern of equality/inequality of underlying
+means.   The conditional false discovery rate of a list of reported genes is the mean of local probababilities of equivalent expression.
+
 ## More than two conditions
-Simulation data
+
+Synthetic example: 
+
 ```
 data(MultiGeneMat)
 ```
@@ -47,7 +52,7 @@ MultiPP = GetMultiPP(MultiOut)
 
 More details and examples can be found in `vignettes`
 
-Reference for the package can be found at "link to Bioarchive"
+Reference for the package can be found at "link to bioRxiv"
 
 Analysis is available at https://github.com/wiscstatman/bigEB
 
