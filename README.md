@@ -1,3 +1,7 @@
+# About EBSeq
+
+EBSeq is a Bioconductor package for processing sequence-based transcriptional profiling (RNA-Seq) data.   It is based upon empirical Bayesian methodology, taking a matrix of expression data as input and returning transcript-specific vectors of local posterior probabilities that score various patterns of differential expression among the group labels associated with the samples.
+
 # EBSeq.v2 package
 
 ## Installation
