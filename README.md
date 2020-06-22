@@ -4,6 +4,8 @@ EBSeq is a Bioconductor package for processing sequence-based transcriptional pr
 
 The code here is a major version update of the original EBSeq method; it deploys some algorithmic changes to improve computational efficiency, especially in the multi-group setting [*citation to bioRxiv paper*]
 
+This version 2.0 update of EBSeq is the topic of bioRxiv 10.1101/2020.06.19.162180 https://biorxiv.org/cgi/content/short/2020.06.19.162180v1
+
 # EBSeq.v2 package
 
 ## Installation
