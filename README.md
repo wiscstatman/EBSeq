@@ -2,7 +2,7 @@
 
 EBSeq is a Bioconductor package for processing sequence-based transcriptional profiling (RNA-Seq) data.   It is based upon empirical Bayesian methodology, taking a matrix of expression data as input and returning transcript-specific vectors of local posterior probabilities that score various patterns of differential expression among the group labels associated with the samples.
 
-The code here is a major version update of the original EBSeq method; it deploys some algorithmic changes to improve computational efficiency, especially in the multi-group setting [*citation to bioRxiv paper*]
+The code here is a major version update of the original EBSeq method; it deploys some algorithmic changes to improve computational efficiency, especially in the multi-group setting.
 
 This version 2.0 update of EBSeq is the topic of bioRxiv 10.1101/2020.06.19.162180 https://biorxiv.org/cgi/content/short/2020.06.19.162180v1
 
