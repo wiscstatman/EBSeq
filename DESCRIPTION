@@ -26,7 +26,7 @@ Roxygen: list(wrap=FALSE)
 RoxygenNote: 7.1.0
 biocViews: ImmunoOncology, StatisticalMethod, DifferentialExpression,
         MultipleComparison, RNASeq, Sequencing
-git_url: https://git.bioconductor.org/packages/EBSeq
+git_url: https://github.com/wiscstatman/EBSeq
 git_branch: RELEASE_3_9
 git_last_commit: f0aec48
 git_last_commit_date: 2019-05-02
