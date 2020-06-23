@@ -1023,11 +1023,13 @@ quantification and DE testing on both gene and isoform levels.
 For more details, see 
 \url{http://deweylab.biostat.wisc.edu/rsem/README.html#de}
 
-\subsection{EBSeq interface: A user-friendly graphical interface for differetial expression analysis}
-EBSeq interface provides a graphical interface implementation for users who are not familiar with the R 
-programming language. It takes .xls, .xlsx and .csv files as input. 
-Additional packages need be downloaded; they may be found at
-\url{http://www.biostat.wisc.edu/~ningleng/EBSeq_Package/EBSeq_Interface/}
+\subsection{EBSeq.v2 reference}
+This version 2.0 update of EBSeq is the topic of bioRxiv 10.1101/2020.06.19.162180 \url{https://biorxiv.org/cgi/content/short/2020.06.19.162180v1}
+% \subsection{EBSeq interface: A user-friendly graphical interface for differetial expression analysis}
+% EBSeq interface provides a graphical interface implementation for users who are not familiar with the R 
+% programming language. It takes .xls, .xlsx and .csv files as input. 
+% Additional packages need be downloaded; they may be found at
+% \url{http://www.biostat.wisc.edu/~ningleng/EBSeq_Package/EBSeq_Interface/}
 
 %\subsection{EBSeq Galaxy tool shed}
 %EBSeq tool shed contains EBSeq wrappers for a local Galaxy implementation.
