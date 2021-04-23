@@ -103,6 +103,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, uc, AllParti=NULL,fast = T,
         Pool = F
         tau=CI=CIthre=NULL
         ApproxVal = 10^-10
+        Dataraw = Data
         # size factor and isoform vector
         if(is.null(NgVector))NgVector=rep(1,nrow(Data))
         if(length(sizeFactors)!=ncol(Data))sizeFactors=sizeFactors[NotAllZeroNames,]
