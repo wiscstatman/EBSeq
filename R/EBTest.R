@@ -192,6 +192,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, Alpha=NULL, Beta=
         ###############
         # Input R
         ###############
+        RInput=NULL
             if (!is.null(RInput)){
 
             RNoZero=RInput[NotAllZeroNames]
