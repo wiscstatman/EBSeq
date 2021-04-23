@@ -64,7 +64,7 @@ The original EBSeq.v1 is nested in the package, using the `fast` option can alte
 
 ```
 Sizes = MedianNorm(GeneMat)
-EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),fast = F,
+EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),fast = F,maxround = 5,
        sizeFactors = Sizes)
 PP = GetPPMat(EBOut)
 ```
