@@ -143,7 +143,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, Alpha=NULL, Beta=
         
     }else{
         # regular (old) EBSeq
-        
+        Vect5End=Vect3End=CI=CIthre=tau=NULL
         # size factor and isoform vector
         if(length(sizeFactors)!=ncol(Data))sizeFactors=sizeFactors[NotAllZeroNames,]
         if(is.null(NgVector))NgVector=rep(1,nrow(Data))
