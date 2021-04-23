@@ -696,7 +696,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, Alpha=NULL, Beta=
         Result = list(Alpha=UpdateAlpha,Beta=UpdateBeta,P=UpdateP
         ,PFromZ=UpdatePFromZ,RList=RealName.EmpiricalRList, MeanList=RealName.MeanList
         ,VarList=RealName.VarList,QList = cbind(RealName.QList1,QList2=RealName.QList2)
-        ,Mean = cbind(RealName.C1MeanList,ealName.C2MeanList)
+        ,Mean = cbind(RealName.C1MeanList,RealName.C2MeanList)
         ,Var = cbind(RealName.C1VarList,RealName.C2VarList)
         ,PoolVar=RealName.PoolVarList
         ,DataNorm = DataNorm
