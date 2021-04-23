@@ -8,7 +8,7 @@ Using EM algorithm to calculate the posterior probabilities of being DE
 Base on the assumption of NB-Beta Empirical Bayes model, the EM algorithm is used to get the posterior probability of being DE.
 }
 \usage{
-EBTest(Data, NgVector = NULL, Conditions, sizeFactors, uc = 1,
+EBTest(Data, NgVector = NULL, Conditions, sizeFactors, 
     Alpha = NULL, Beta = NULL, Qtrm = 1, QtrmCut = 0, maxround = 50, 
     step1 = 1e-06, step2 = 0.01, thre = log(2), sthre = 0.001, 
     filter = 10, stopthre = 0.001) 
@@ -23,8 +23,6 @@ e.g. if we use number of isoforms in the host gene to define the uncertainty gro
   \item{Conditions}{A factor indicates the condition which each sample belongs to. }
   
   \item{sizeFactors}{The normalization factors. It should be a vector with lane specific numbers (the length of the vector should be the same as the number of samples, with the same order as the columns of Data).}
-  
-  \item{uc}{number of unceratin positions, unit level}
   
   \item{Alpha}{start value of hyper parameter alpha}
 
