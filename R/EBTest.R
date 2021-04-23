@@ -143,6 +143,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, Alpha=NULL, Beta=
         
     }else{
         # regular (old) EBSeq
+        Dataraw=Data
         Vect5End=Vect3End=CI=CIthre=tau=NULL
         ApproxVal=10^-10
         # size factor and isoform vector
