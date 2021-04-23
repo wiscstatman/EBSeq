@@ -493,7 +493,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, uc, AllParti=NULL,fast = T,
     , MeanList=RealName.MeanList
     ,VarList=RealName.VarList
     , QList=RealName.QList
-    ,Mean=RealName.SPMeanList
+    ,Mean=unlist(RealName.SPMeanList)
     ,Var=RealName.SPVarList
     ,PoolVar=RealName.PoolVarList
     ,DataNorm = DataNorm

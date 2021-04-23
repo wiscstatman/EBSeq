@@ -1,7 +1,14 @@
 GetMultiPP <- function(EBout){
-    if(ncol(EBout$Mean) < 3)
-    stop("The input doesn't seem like an output from EBMultiTest")
+    if(is.null(ncol(EBout$Mean)))
+    {
+        if(length(EBout$Mean) < 3)
+            stop("The input doesn't seem like an output from EBMultiTest")
 
+    }else{
+        if(ncol(EBout$Mean) < 3)
+        stop("The input doesn't seem like an output from EBMultiTest")
+    }
+    
 	PP=EBout$PPMat
 	UnderFlow=which(is.na(rowSums(PP)))
 	if(length(UnderFlow)!=0)Good=c(1:nrow(PP))[-UnderFlow]
