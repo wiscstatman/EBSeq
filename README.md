@@ -58,7 +58,7 @@ Reference for the package can be found at "link to bioRxiv"
 
 Analysis is available at https://github.com/wiscstatman/bigEB
 
-## compatible of using EBSeq.v1
+# Compatible with EBSeq.v1
 
 The original EBSeq.v1 is nested in the package, using the `fast` option can alternate between v2 and v1. 
 
