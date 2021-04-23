@@ -61,7 +61,10 @@ Analysis is available at https://github.com/wiscstatman/bigEB
 
 # Compatible with EBSeq.v1
 
-The original EBSeq.v1 is embedded in the package, using the `fast` option can alternate between v2 and v1. 
+The original EBSeq.v1 is embedded in the package, using the `fast` option to alternate between v2 and v1. 
+By default `fast` is set to `TRUE` and EBSeq.v2 is called, 
+By setting `fast` to `FALSE`, EBSeq.v1 is called.
+
 
 for example,
 
