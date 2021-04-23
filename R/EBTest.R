@@ -1,5 +1,5 @@
 EBTest <-
-function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, uc = 1, Alpha=NULL, Beta=NULL, Qtrm=1, QtrmCut=0
+function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, Alpha=NULL, Beta=NULL, Qtrm=1, QtrmCut=0
     ,maxround = 50, step1 = 1e-6,step2 = 0.01, thre = log(2), sthre = 0, filter = 10, stopthre = 1e-4)
 {
 	
@@ -18,9 +18,9 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, uc = 1, Alpha=NUL
 	if(length(unique(Conditions)) < 2){
         stop("there is only one condition")
     }
-    if(length(unique(Conditions)) <= uc){
-        stop("uncertain positison must be smaller than number of conditions")
-    }
+    #if(length(unique(Conditions)) <= uc){
+     #   stop("uncertain positison must be smaller than number of conditions")
+    #}
 	
     
 
@@ -82,7 +82,9 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, uc = 1, Alpha=NUL
         cd = Conditions
         levels(cd) = 1:length(levels(cd))
         
+        
         # run the Test, c++ based
+        uc = 1
         res = EBSeqTest(Data,cd,uc,iLabel = NgVector,sizefactor = sizeFactors,
         iter = maxround,alpha = Alpha, beta = Beta, step1 = step1,step2 = step2,
         thre = thre, sthre = sthre, filter = filter, stopthre = stopthre)
