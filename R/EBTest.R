@@ -116,7 +116,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, fast = T, Alpha=NULL, Beta=
         # included genes full of 0s
         MatWith0 = matrix(NA,nrow = nrow(DataNorm), ncol = 2)
         rownames(MatWith0) = rownames(DataNorm)
-        Matwith0[NotAllZeroNames,] = Mat
+        MatWith0[NotAllZeroNames,] = Mat
         colnames(MatWith0) = colnames(Mat)
         
         # assign rownames(gene names) to mean vector
