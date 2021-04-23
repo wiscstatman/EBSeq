@@ -58,4 +58,14 @@ Reference for the package can be found at "link to bioRxiv"
 
 Analysis is available at https://github.com/wiscstatman/bigEB
 
+## compatible of using EBSeq.v1
+
+The original EBSeq.v1 is nested in the package, using the `fast` option can alternate between v2 and v1. 
+
+```
+Sizes = MedianNorm(GeneMat)
+EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),fast = F,
+       sizeFactors = Sizes)
+PP = GetPPMat(EBOut)
+```
 
