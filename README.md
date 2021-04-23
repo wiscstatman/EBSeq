@@ -63,6 +63,8 @@ Analysis is available at https://github.com/wiscstatman/bigEB
 
 The original EBSeq.v1 is nested in the package, using the `fast` option can alternate between v2 and v1. 
 
+for example,
+
 ```
 Sizes = MedianNorm(GeneMat)
 EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),fast = F,maxround = 5,
@@ -70,3 +72,10 @@ EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),fast
 PP = GetPPMat(EBOut)
 ```
 
+```
+Conditions = c("C1","C1","C2","C2","C3","C3")
+MultiSize = MedianNorm(MultiGeneMat)
+MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,uc = 2,fast = F,maxround = 5,
+                     sizeFactors=MultiSize)
+MultiPP = GetMultiPP(MultiOut)
+```                     
