@@ -83,7 +83,7 @@ MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,uc = 2,fast = F,maxrou
 MultiPP = GetMultiPP(MultiOut)
 ```                     
 
-# currently developing
+# Currently developing
 EBSeq.v2 will automatically filter partitions that are unfavorable given the data.
 So it does not require user sepcify or narrow the pool of partitions under consideration.
 However, it will be more flexible if we allow users input the pool of partitions (typically of a small size) 
