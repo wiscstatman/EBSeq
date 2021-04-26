@@ -66,7 +66,7 @@ By default `fast` is set to `TRUE` and EBSeq.v2 is called.
 To use EBSeq.v1, simply switch `fast` to `FALSE` 
 
 
-for example,
+for example, the two group senario:
 
 ```
 Sizes = MedianNorm(GeneMat)
@@ -74,7 +74,7 @@ EBOut = EBTest(Data=GeneMat, Conditions=as.factor(rep(c("C1","C2"),each=5)),fast
        sizeFactors = Sizes)
 PP = GetPPMat(EBOut)
 ```
-
+or more than two groups scenario:
 ```
 Conditions = c("C1","C1","C2","C2","C3","C3")
 MultiSize = MedianNorm(MultiGeneMat)
