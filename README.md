@@ -87,4 +87,4 @@ MultiPP = GetMultiPP(MultiOut)
 EBSeq.v2 will automatically filter partitions that are unfavorable given the data.
 So it does not require user sepcify or narrow the pool of partitions under consideration.
 However, it will be more flexible if we allow users input the pool of partitions (typically of a small size) 
-that they are interested at or have prior knowledge of how to select them. 
+that they are interested at. 
