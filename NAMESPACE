@@ -2,7 +2,7 @@ useDynLib(EBSeq)
 export(crit_fun, DenNHist, EBTest, GetNg, MedianNorm, 
 PolyFitPlot, PostFC, QQP, QuantileNorm, RankNorm, EBMultiTest, 
 GetMultiPP, GetPatterns, PlotPattern, GetPPMat, GetMultiFC, PlotPostVsRawFC,
-GetNormalizedMat, GetDEResults,EBSeqTest)
+GetNormalizedMat, GetDEResults,GetSelectedPatterns)
 import(blockmodeling, gplots, testthat,RcppEigen)
 importFrom(Rcpp, evalCpp)
 exportPattern("^[[:alpha:]]+")

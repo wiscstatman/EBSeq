@@ -18,7 +18,7 @@ Collate: 'MedianNorm.R' 'GetNg.R' 'beta.mom.R'
         'crit_fun.R' 'DenNHist.R' 'GetNormalizedMat.R' 'PlotPattern.R'
         'PolyFitPlot.R' 'QQP.R' 'QuantileNorm.R' 'RankNorm.R'
         'GetDEResults.R' 'EBSeqTest.R' 'Likefun.R' 'LikefunMulti.R'
-	'LogN.R' 'LogNMulti.R' 'f0.R' 'f1.R'
+	'LogN.R' 'LogNMulti.R' 'f0.R' 'f1.R' 'GetSelectedPatterns.R'
 BuildVignettes: no
 Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0)
 LinkingTo: Rcpp,RcppEigen,BH
