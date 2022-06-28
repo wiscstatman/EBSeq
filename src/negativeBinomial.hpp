@@ -282,10 +282,12 @@ namespace EBS
                 DEpat();
             }else{
                 for(size_t i = 0; i < _parti.size(); i++){
+                    _dep.push_back(_parti[i]);
                     _pat.push_back(partition::toMatrix(_parti[i]));
                 }
+                _guc.resize(1);
+                _guc[0] = 0;
             }
-            
             
             // error checking, number of promising DE patterns must > 0
             size_t n = _dep.size();

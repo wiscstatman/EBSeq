@@ -88,7 +88,6 @@ RcppExport SEXP EBSeq(SEXP scExpMatrix, SEXP groupLabel, SEXP AllParti, SEXP iso
         parti.push_back(tmp);
     }
     
-    
     std::vector<int> conditions(nc);
     std::copy(cluster.begin(),cluster.end(),conditions.begin());
     
