@@ -93,8 +93,12 @@ PosParti=GetPatterns(Conditions)
 PosParti
 Parti=PosParti[-3,]
 Parti
+```
+If we only consider patterns 1,2,4 and 5.
+```
 MultiSize = MedianNorm(MultiGeneMat)
-MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,AllParti = Parti,fast = F,maxround = 5,
+MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,AllParti = Parti,
                      sizeFactors=MultiSize)
 MultiPP = GetMultiPP(MultiOut)
-```                     
+```             
+
