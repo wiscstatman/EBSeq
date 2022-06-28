@@ -78,13 +78,23 @@ or more than two groups scenario:
 ```
 Conditions = c("C1","C1","C2","C2","C3","C3")
 MultiSize = MedianNorm(MultiGeneMat)
-MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,uc = 2,fast = F,maxround = 5,
+MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,fast = F,maxround = 5,
                      sizeFactors=MultiSize)
 MultiPP = GetMultiPP(MultiOut)
 ```                     
 
-# Currently developing
-EBSeq.v2 will automatically filter partitions that are unfavorable given the data.
-So it does not require user sepcify or narrow the pool of partitions under consideration.
-However, it will be more flexible if we allow users input the pool of partitions (typically of a small size) 
-that they are interested at. 
+# Also support user-specified paritions
+
+Like EBSeq.v1, user can use the argument `AllParti` to input self-specified partitions, that is, using prior knowledge, only considering a subset of total partitions.  
+
+```
+Conditions = c("C1","C1","C2","C2","C3","C3")
+PosParti=GetPatterns(Conditions)
+PosParti
+Parti=PosParti[-3,]
+Parti
+MultiSize = MedianNorm(MultiGeneMat)
+MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,AllParti = Parti,fast = F,maxround = 5,
+                     sizeFactors=MultiSize)
+MultiPP = GetMultiPP(MultiOut)
+```                     
