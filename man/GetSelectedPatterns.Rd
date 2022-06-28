@@ -1,10 +1,10 @@
 \name{GetSelectedPatterns}
 \alias{GetSelectedPatterns}
 \title{
-Generate all possible patterns in a multiple condition study
+Get selected patterns in a multiple condition study
 }
 \description{
-'GetSelectedPatterns' generates all possible patterns in a multiple condition study.
+'GetSelectedPatterns' get selected patterns in a multiple condition study.
 }
 \usage{
 GetPatterns(EBout)
