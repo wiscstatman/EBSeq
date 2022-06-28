@@ -16,12 +16,13 @@ using namespace Rcpp;
 using namespace Eigen;
 using namespace std;
 
-Rcpp::List EBSeq(Rcpp::NumericMatrix scExpMatrix, Rcpp::IntegerVector groupLabel, Rcpp::IntegerVector isoLabel, Rcpp::NumericVector sizeFactor, int iter, double alpha, Rcpp::NumericVector beta, double step1, double step2, int uc, double thre, double sthre, double filter, double stopthre, int neql);
+Rcpp::List EBSeq(Rcpp::NumericMatrix scExpMatrix, Rcpp::IntegerVector groupLabel, Rcpp::NumericMatrix AllParti, Rcpp::IntegerVector isoLabel, Rcpp::NumericVector sizeFactor, int iter, double alpha, Rcpp::NumericVector beta, double step1, double step2, int uc, double thre, double sthre, double filter, double stopthre, int neql);
 
-RcppExport SEXP EBSeq(SEXP scExpMatrix, SEXP groupLabel, SEXP isoLabel, SEXP sizeFactor, SEXP iter, SEXP alpha, SEXP beta, SEXP step1, SEXP step2, SEXP uc, SEXP thre, SEXP sthre, SEXP filter, SEXP stopthre, SEXP neql)
+RcppExport SEXP EBSeq(SEXP scExpMatrix, SEXP groupLabel, SEXP AllParti, SEXP isoLabel, SEXP sizeFactor, SEXP iter, SEXP alpha, SEXP beta, SEXP step1, SEXP step2, SEXP uc, SEXP thre, SEXP sthre, SEXP filter, SEXP stopthre, SEXP neql)
 {
     // param scExpMatrix: scRNA seq transcripts matrix (normalized counts required)
     // param groupLabel: group label for each cell
+    // param AllParti: user provided, partitions of interest
     // param isoLabel: for isoform case need to share beta within same isoform label
     // param sizeFactor: normalizing factor for raw counts (for old EBSeq), 1 for normalized counts
     // param iter: number of max iteration in EM
@@ -61,6 +62,8 @@ RcppExport SEXP EBSeq(SEXP scExpMatrix, SEXP groupLabel, SEXP isoLabel, SEXP siz
     
     IntegerVector cluster(groupLabel);
     
+    NumericMatrix allP(AllParti);
+    
     IntegerVector iL(isoLabel);
     
     NumericVector szf(sizeFactor);
@@ -69,9 +72,22 @@ RcppExport SEXP EBSeq(SEXP scExpMatrix, SEXP groupLabel, SEXP isoLabel, SEXP siz
     
     const int ng = scExpM.rows();
     const int nc = scExpM.cols();
+    const int nr = allP.rows();
+    const int nk = allP.cols();
     
     EBS::COUNTS data(ng,nc);
     std::copy(scExpM.begin(),scExpM.end(),data.data());
+    
+    std::vector<std::vector<int> > parti;
+    std::vector<int> tmp;
+    tmp.resize(nk);
+    for(size_t i = 0; i < nr; i++){
+        for(size_t j = 0; j < nk; j++){
+            tmp[j] = allP(i,j);
+        }
+        parti.push_back(tmp);
+    }
+    
     
     std::vector<int> conditions(nc);
     std::copy(cluster.begin(),cluster.end(),conditions.begin());
@@ -90,7 +106,7 @@ RcppExport SEXP EBSeq(SEXP scExpMatrix, SEXP groupLabel, SEXP isoLabel, SEXP siz
     lrate.push_back(stepsizeBt);
     
     // create and initialize NB class object
-    EBS::NB X = EBS::NB(data,conditions,sf);
+    EBS::NB X = EBS::NB(data,conditions,sf,parti);
     
     X.init(alp, bt, iLabel, lrate, UC, threshold, sthreshold, filterThre, nequal);
     

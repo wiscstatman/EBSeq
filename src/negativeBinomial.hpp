@@ -17,9 +17,17 @@ namespace EBS
     public:
         
         
-        NB(COUNTS& scRNAexpMatrix, std::vector<int>& cellCluster, Eigen::VectorXd& sizeFactor) : EBSeq(scRNAexpMatrix, cellCluster, sizeFactor)
+        NB(COUNTS& scRNAexpMatrix, std::vector<int>& cellCluster, Eigen::VectorXd& sizeFactor, std::vector<std::vector<int> >& AllParti) : EBSeq(scRNAexpMatrix, cellCluster, sizeFactor)
         {
             size_t nk = (_clusinfo.size).size();
+            
+            if(AllParti[0][0] == 0){
+                _has_user_specified_parti = false;
+            }else{
+                _has_user_specified_parti = true;
+            }
+            
+            _parti = AllParti;
             
             if(scRNAexpMatrix.cols() > nk)
             {
@@ -270,7 +278,14 @@ namespace EBS
             //_mde.fill(1.0 / 2);
             
             // get promising DE pattern
-            DEpat();
+            if(!_has_user_specified_parti){
+                DEpat();
+            }else{
+                for(size_t i = 0; i < _parti.size(); i++){
+                    _pat.push_back(partition::toMatrix(_parti[i]));
+                }
+            }
+            
             
             // error checking, number of promising DE patterns must > 0
             size_t n = _dep.size();
@@ -825,6 +840,10 @@ namespace EBS
         
         void shrinkage()
         {
+            if(_has_user_specified_parti){
+                return;
+            }
+            
             std::vector<std::vector<int>> newDep;
             
             std::vector<COUNTS> newPat;
@@ -1107,6 +1126,12 @@ namespace EBS
         
         // posterior prob
         COUNTS _post;
+        
+        // indicator if user provide the partition
+        bool _has_user_specified_parti;
+        
+        // user provide partition, default is (0,...,0) if nothing is provided and EBSeq will auto find the probable partition
+        std::vector<std::vector<int> > _parti;
         
     };
     
