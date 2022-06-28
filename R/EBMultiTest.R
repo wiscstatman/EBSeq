@@ -87,7 +87,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, uc = 0, AllParti=NULL,fast 
         
         ## default to have K - 1 position uncertain
         if(uc == 0){
-            uc = max(cd) - 1
+            uc = length(levels(cd)) - 1
         }
         
         # run the Test, c++ based
