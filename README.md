@@ -43,11 +43,11 @@ Synthetic example:
 data(MultiGeneMat)
 ```
 `EBMultiTest` is the function considering differential expression patterns over more than two conditions. 
-Similar as `EBTest`, except for one more argument requiring user specified. `uc` is a number to constrain how many uncertain positions at most for each unit. `MultiOut$AllParti` outputs the selected patterns, `MultiPP` gives the posterior probabilities for each expression patterns. 
+`MultiOut$AllParti` outputs the selected patterns, `MultiPP` gives the posterior probabilities for each expression patterns. 
 ```
 Conditions = c("C1","C1","C2","C2","C3","C3")
 MultiSize = MedianNorm(MultiGeneMat)
-MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,uc = 2,
+MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,
                      sizeFactors=MultiSize)
 patterns = MultiOut$AllParti
 MultiPP = GetMultiPP(MultiOut)
