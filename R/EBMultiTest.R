@@ -1,5 +1,5 @@
 EBMultiTest <-
-function(Data,NgVector=NULL,Conditions, sizeFactors, uc, AllParti=NULL,fast = T,Alpha=NULL, Beta=NULL, Qtrm=1, QtrmCut=0
+function(Data,NgVector=NULL,Conditions, sizeFactors, uc = 0, AllParti=NULL,fast = T,Alpha=NULL, Beta=NULL, Qtrm=1, QtrmCut=0
 ,maxround = 50, step1 = 1e-6,step2 = 0.01, thre = log(2), sthre = 0, filter = 10, stopthre = 1e-4, nequal = 2)
 {
  expect_is(sizeFactors, c("numeric","integer"))
@@ -75,8 +75,23 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, uc, AllParti=NULL,fast = T,
         cd = Conditions
         levels(cd) = 1:length(levels(cd))
         
+        # check if AllParti is valid
+        if(!is.null(AllParti)){
+            if(!is.matrix(AllParti)){
+                stop("AllParti should be matrix")
+            }
+            if(ncol(AllParti) != max(cd)){
+                stop("AllParti should have same number of columns as the number of conditions(groups)")
+            }
+        }
+        
+        ## default to have K - 1 position uncertain
+        if(uc == 0){
+            uc = max(cd) - 1
+        }
+        
         # run the Test, c++ based
-        res = EBSeqTest(Data,cd,uc, iLabel = NgVector,sizefactor = sizeFactors,
+        res = EBSeqTest(Data,cd,uc,AllParti,iLabel = NgVector,sizefactor = sizeFactors,
         iter = maxround,alpha = Alpha, beta = Beta, step1 = step1,step2 = step2,
         thre = thre, sthre = sthre, filter = filter, stopthre = stopthre, nequal = nequal)
         

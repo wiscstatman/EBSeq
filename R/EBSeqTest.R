@@ -1,6 +1,6 @@
 
 
-EBSeqTest <- function(data,conditions,uc, iLabel = 1,sizefactor = 1,
+EBSeqTest <- function(data,conditions,uc, AllParti=NULL, iLabel = 1,sizefactor = 1,
 iter = 50,alpha = 0.4, beta = 0, step1 = 1e-6,step2 = 0.01,
 thre = log(2), sthre = 0.001, filter = 10, stopthre = 1e-3, nequal = 2) {
     
@@ -36,12 +36,15 @@ thre = log(2), sthre = 0.001, filter = 10, stopthre = 1e-3, nequal = 2) {
     {
         stop("incorrect length of size factor")
     }
-    
+    if(is.null(AllParti)){
+        AllParti = matrix(0,nrow=1,ncol=max(conditions))
+    }
     
     
     .Call('EBSeq',
     scExpMatrix = data,
     groupLabel = conditions,
+    AllParti = AllParti,
     iLabel = iLabel,
     sizeFactor = sizefactor,
     iter = iter,
