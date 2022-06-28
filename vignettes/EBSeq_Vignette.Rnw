@@ -389,19 +389,24 @@ MultiSize=MedianNorm(MultiGeneMat)
 MultiOut=EBMultiTest(MultiGeneMat,Conditions=Conditions,
  sizeFactors=MultiSize)
 @
-The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
-
+The function \verb+GetSelectedPatterns+ allows the user to get selected patterns. For example:
 <<>>=
-PosParti=GetPatterns(MultiOut)
+PosParti=GetSelectedPatterns(MultiOut)
 PosParti
 @
-
 \noindent where the first row means all three conditions have distinct latent mean expression level; 
 the second row means C1 and C2 have the same latent mean expression level but that of C3 is different; 
-and the last row corresponds to the case where C1 and C3 have the same latent mean expression level but that of C2 is different.The user
-may use all or only some of these possible patterns as an input to \verb+EBMultiTest+. For example, if we were interested in first 4 Patterns only, we'd define:
+and the last row corresponds to the case where C1 and C3 have the same latent mean expression level but that of C2 is different. The user
+may use all or only some of these possible patterns as an input to \verb+EBMultiTest+.
+The function \verb+GetPatterns+ allows the user to generate all possible patterns given the conditions.
+For example:
 <<>>=
-Parti = PosParti[-5,]
+PosParti = GetPatterns(Conditions)
+PosParti
+@
+if we were interested in Patterns 1, 2, 4 and 5 only, we'd define:
+<<>>=
+Parti = PosParti[-3,]
 Parti
 @
 and use the \verb+AllParti+ argument to input the user specified subset of partitions 
@@ -457,10 +462,10 @@ sizeFactors=IsoMultiSize,
 nequal = 10)
 @
 
-The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
+The function \verb+GetSelectedPatterns+ allows the user to get selected patterns. For example:
 
 <<>>=
-PosParti.4Cond=GetPatterns(IsoMultiOut)
+PosParti.4Cond=GetSelectedPatterns(IsoMultiOut)
 PosParti.4Cond
 @
 
@@ -790,13 +795,13 @@ MultiPP$MAP[1:10]
 MultiPP$Patterns
 @
 As described in Section \ref{sec:startmulticond}, 
-the function \verb+GetPatterns+ allows the user to get selected patterns after we run the \verb+EBMultiTest+ function
+the function \verb+GetSelectedPatterns+ allows the user to get selected patterns after we run the \verb+EBMultiTest+ function
 To visualize the patterns, the function \verb+PlotPattern+ may be used.
 
 \begin{figure}[h!]
 \centering
 <<fig=TRUE>>=
-PosParti=GetPatterns(MultiOut)
+PosParti=GetSelectedPatterns(MultiOut)
 PosParti
 PlotPattern(PosParti)
 @
@@ -867,10 +872,10 @@ IsoMultiFC=GetMultiFC(IsoMultiOut)
 @
 
 Similar to Section \ref{sec:startmulticond}, 
-the function \verb+GetPatterns+ allows a user to get selected patterns.
+the function \verb+GetSelectedPatterns+ allows a user to get selected patterns.
 To visualize the patterns, the function \verb+PlotPattern+ may be used.
 <<>>=
-PosParti.4Cond=GetPatterns(IsoMultiOut)
+PosParti.4Cond=GetSelectedPatterns(IsoMultiOut)
 PosParti.4Cond
 @
 
