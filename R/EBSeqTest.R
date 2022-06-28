@@ -37,7 +37,7 @@ thre = log(2), sthre = 0.001, filter = 10, stopthre = 1e-3, nequal = 2) {
         stop("incorrect length of size factor")
     }
     if(is.null(AllParti)){
-        AllParti = matrix(0,nrow=1,ncol=max(conditions))
+        AllParti = matrix(0,nrow=1,ncol=length(levels(conditions)))
     }
     
     

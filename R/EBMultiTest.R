@@ -80,7 +80,7 @@ function(Data,NgVector=NULL,Conditions, sizeFactors, uc = 0, AllParti=NULL,fast 
             if(!is.matrix(AllParti)){
                 stop("AllParti should be matrix")
             }
-            if(ncol(AllParti) != max(cd)){
+            if(ncol(AllParti) != length(levels(cd))){
                 stop("AllParti should have same number of columns as the number of conditions(groups)")
             }
         }
