@@ -2,7 +2,7 @@
 \alias{EBSeqTest}
 \title{EBSeq core}
 \usage{
-EBSeqTest(data, conditions, uc, iLabel = 1, sizefactor = 1,
+EBSeqTest(data, conditions, uc, AllParti = NULL, iLabel = 1, sizefactor = 1,
   iter = 50, alpha = 0.4, beta = 0, step1 = 1e-06, step2 = 0.01,
   thre = log(2), sthre = 0, filter = 10, stopthre = 0.001)
 }
@@ -12,6 +12,8 @@ EBSeqTest(data, conditions, uc, iLabel = 1, sizefactor = 1,
 \item{conditions}{condition label for samples}
 
 \item{uc}{number of unceratin positions, unit level}
+
+\item{AllParti}{user specified set of partitions}
 
 \item{iLabel}{label for isoform, indicating how beta are shared among units}
 

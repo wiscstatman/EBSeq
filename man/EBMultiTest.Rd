@@ -8,7 +8,7 @@ of interested patterns in a multiple condition study
 'EBMultiTest' is built based on the assumption of NB-Beta Empirical Bayes model. It utilizes the EM algorithm to give the posterior probability of the interested patterns.
 }
 \usage{
-EBMultiTest(Data, NgVector = NULL, Conditions, sizeFactors, uc, AllParti = F, fast = T,
+EBMultiTest(Data, NgVector = NULL, Conditions, sizeFactors, uc = 0, AllParti = NULL, fast = T,
     Alpha = NULL, Beta = NULL, Qtrm = 1, QtrmCut = 0, maxround = 50, 
     step1 = 1e-06, step2 = 0.01, thre = log(2), sthre = 0.001, 
     filter = 10, stopthre = 0.001, nequal = 2)
@@ -27,9 +27,9 @@ If it's gene level data, Ngvector could be left as NULL.}
 
   \item{sizeFactors}{The normalization factors. It should be a vector with lane specific numbers (the length of the vector should be the same as the number of samples, with the same order as the columns of Data).}
   
-  \item{uc}{number of unceratin positions, unit level}
+  \item{uc}{number of unceratin positions, unit levels}
   
-  \item{AllParti}{partitions under consideration only effective when fast set to be false}
+  \item{AllParti}{user specified set of partitions, a matrix, with each row represent a partition}
   
   \item{fast}{boolean indicator whether to use fast EBSeq or full EBSeq}
   
