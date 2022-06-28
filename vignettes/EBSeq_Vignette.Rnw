@@ -387,7 +387,7 @@ Once this is done, the formal test is performed by \verb+EBMultiTest+.
 <<>>=
 MultiSize=MedianNorm(MultiGeneMat)
 MultiOut=EBMultiTest(MultiGeneMat,Conditions=Conditions,
- sizeFactors=MultiSize, uc = 2)
+ sizeFactors=MultiSize)
 @
 The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
 
@@ -398,7 +398,17 @@ PosParti
 
 \noindent where the first row means all three conditions have distinct latent mean expression level; 
 the second row means C1 and C2 have the same latent mean expression level but that of C3 is different; 
-and the last row corresponds to the case where C1 and C3 have the same latent mean expression level but that of C2 is different.
+and the last row corresponds to the case where C1 and C3 have the same latent mean expression level but that of C2 is different.The user
+may use all or only some of these possible patterns as an input to \verb+EBMultiTest+. For example, if we were interested in first 4 Patterns only, we'd define:
+<<>>=
+Parti = PosParti[-5,]
+Parti
+@
+and use the \verb+AllParti+ argument to input the user specified subset of partitions 
+<<>>=
+MultiOut=EBMultiTest(MultiGeneMat,Conditions=Conditions,
+ sizeFactors=MultiSize,AllParti=Parti)
+@
 \noindent The posterior probability of being in each pattern for every gene is obtained by using the 
 function \verb+GetMultiPP+:
 <<>>=
@@ -444,7 +454,7 @@ Conditions=c("C1","C1","C2","C2","C3","C3","C4","C4")
 IsoMultiOut=EBMultiTest(IsoMultiMat,
 NgVector=IsoNgTrun.Multi,Conditions=Conditions,
 sizeFactors=IsoMultiSize, 
-uc = 2,nequal = 10)
+nequal = 10)
 @
 
 The function \verb+GetPatterns+ allows the user to get selected patterns. For example:
@@ -768,7 +778,7 @@ Conditions=c("C1","C1","C2","C2","C3","C3")
 MultiSize=MedianNorm(MultiGeneMat)
 MultiOut=EBMultiTest(MultiGeneMat,
 NgVector=NULL,Conditions=Conditions,
-sizeFactors=MultiSize, uc = 2)
+sizeFactors=MultiSize)
 @
 \noindent The posterior probability of being in each pattern for every gene is obtained using the 
 function \verb+GetMultiPP+:
@@ -845,7 +855,7 @@ IsoMultiSize=MedianNorm(IsoMultiMat)
 NgList.Multi=GetNg(IsoNames.Multi, IsosGeneNames.Multi)
 IsoNgTrun.Multi=NgList.Multi$IsoformNgTrun
 IsoMultiOut=EBMultiTest(IsoMultiMat,NgVector=IsoNgTrun.Multi,Conditions=Conditions,
-sizeFactors=IsoMultiSize, uc = 2)
+sizeFactors=IsoMultiSize)
 IsoMultiPP=GetMultiPP(IsoMultiOut)
 @
 <<>>=
@@ -979,8 +989,7 @@ Conditions=c("C1","C2","C3")
 #Parti=PosParti[-3,]
 MultiSize.norep=MedianNorm(MultiGeneMat.norep)
 MultiOut.norep=EBMultiTest(MultiGeneMat.norep,
-NgVector=NULL,Conditions=Conditions, sizeFactors=MultiSize.norep, 
-uc =2)
+NgVector=NULL,Conditions=Conditions, sizeFactors=MultiSize.norep)
 MultiPP.norep=GetMultiPP(MultiOut.norep)
 MultiFC.norep=GetMultiFC(MultiOut.norep)
 @
@@ -1010,7 +1019,7 @@ Conditions=c("C1","C2","C3","C4")
 #Parti.4Cond
 IsoMultiOut.norep=EBMultiTest(IsoMultiMat.norep,
 NgVector=IsoNgTrun.Multi,Conditions=Conditions,
-sizeFactors=IsoMultiSize.norep, uc = 3)
+sizeFactors=IsoMultiSize.norep)
 IsoMultiPP.norep=GetMultiPP(IsoMultiOut.norep)
 IsoMultiFC.norep=GetMultiFC(IsoMultiOut.norep)
 @
