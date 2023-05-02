@@ -4,8 +4,11 @@ Title: An R package for gene and isoform differential expression
         analysis of RNA-seq data
 Version: 2.00.0
 Date: 2015-12-8
-Author: Ning Leng, Xiuyu Ma, Christina Kendziorski, Michael A. Newton
-Maintainer: Xiuyu Ma <watsonforfun@gmail.com>
+Authors@R: c(person("Xiuyu", "Ma", email = "watsonforfun@gmail.com", role = c("cre", "aut")), 
+	person("Ning", "Leng", email = "lengning1@gmail.com", role = c("aut")),
+	person("Christina", "Kendziorski", email = "kendzior@biostat.wisc.edu", role = c("ctb")),
+	person("Michael A.", "Newton", email = "newton@stat.wisc.edu", role = c("ctb")),
+Ning Leng, Xiuyu Ma, Christina Kendziorski, Michael A. Newton
 Depends: blockmodeling, gplots, testthat, R (>= 3.0.0)
 Description: Differential Expression analysis at both gene and isoform
         level using RNA-seq data
