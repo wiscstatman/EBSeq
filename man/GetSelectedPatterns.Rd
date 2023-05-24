@@ -7,7 +7,7 @@ Get selected patterns in a multiple condition study
 'GetSelectedPatterns' get selected patterns in a multiple condition study.
 }
 \usage{
-GetPatterns(EBout)
+GetSelectedPatterns(EBout)
 }
 \arguments{
   \item{EBout}{Results from EBMultiTest}
