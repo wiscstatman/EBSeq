@@ -17,7 +17,7 @@ EBSeqTest(data, conditions, uc, AllParti = NULL, iLabel = 1, sizefactor = 1,
 
 \item{iLabel}{label for isoform, indicating how beta are shared among units}
 
-\item{sizeFactor}{The normalization factors. It should be a vector with lane specific numbers (the length of the vector should be the same as the number of samples, with the same order as the columns of Data).}
+\item{sizefactor}{The normalization factors. It should be a vector with lane specific numbers (the length of the vector should be the same as the number of samples, with the same order as the columns of Data).}
 
 \item{iter}{maximum iteration step of EM}
 
