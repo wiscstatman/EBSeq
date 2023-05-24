@@ -10,8 +10,8 @@ Base on the assumption of NB-Beta Empirical Bayes model, the EM algorithm is use
 \usage{
 EBTest(Data, NgVector = NULL, Conditions, sizeFactors, fast = T,
     Alpha = NULL, Beta = NULL, Qtrm = 1, QtrmCut = 0, maxround = 50, 
-    step1 = 1e-06, step2 = 0.01, thre = log(2), sthre = 0.001, 
-    filter = 10, stopthre = 0.001) 
+    step1 = 1e-06, step2 = 0.01, thre = log(2), sthre = 0, 
+    filter = 10, stopthre = 1e-4) 
 }
 \arguments{
 
