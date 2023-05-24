@@ -4,7 +4,7 @@
 \usage{
 EBSeqTest(data, conditions, uc, AllParti = NULL, iLabel = 1, sizefactor = 1,
   iter = 50, alpha = 0.4, beta = 0, step1 = 1e-06, step2 = 0.01,
-  thre = log(2), sthre = 0, filter = 10, stopthre = 0.001)
+  thre = log(2), sthre = 0.001, filter = 10, stopthre = 0.001, nequal = 2)
 }
 \arguments{
 \item{data}{A data matrix contains expression values for each transcript (gene or isoform level). In which rows should be transcripts and columns should be samples. For single cell data, normalized counts are required}
@@ -34,6 +34,8 @@ EBSeqTest(data, conditions, uc, AllParti = NULL, iLabel = 1, sizefactor = 1,
 \item{filter}{filterthreshold for low expression units}
 
 \item{stopthre}{stopping threshold for EM}
+
+\item{nequal}{when there is a chain of equal states with the number of equal states bigger than nequal, equalhandle algorithm will be used to further checking the homogeneity between the group means}
 }
 \value{
 a list containing selected DE patterns and their posterior probabilities, values for alpha and beta, some moments of the data
