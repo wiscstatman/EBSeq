@@ -2,7 +2,7 @@ Package: EBSeq
 Type: Package
 Title: An R package for gene and isoform differential expression
         analysis of RNA-seq data
-Version: 2.00.0
+Version: 1.99.0
 Date: 2015-12-8
 Authors@R: c(person("Xiuyu", "Ma", email = "watsonforfun@gmail.com", role = c("cre", "aut")), 
 	person("Ning", "Leng", email = "lengning1@gmail.com", role = c("aut")),
