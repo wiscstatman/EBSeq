@@ -24,7 +24,7 @@ Collate: 'MedianNorm.R' 'GetNg.R' 'beta.mom.R'
 BuildVignettes: no
 Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0)
 LinkingTo: Rcpp,RcppEigen,BH
-SystemRequirements: c++11
+SystemRequirements: c++14
 Roxygen: list(wrap=FALSE)
 RoxygenNote: 7.1.0
 biocViews: ImmunoOncology, StatisticalMethod, DifferentialExpression,
