@@ -22,7 +22,7 @@ Collate: 'MedianNorm.R' 'GetNg.R' 'beta.mom.R'
         'GetDEResults.R' 'EBSeqTest.R' 'Likefun.R' 'LikefunMulti.R'
 	'LogN.R' 'LogNMulti.R' 'f0.R' 'f1.R' 'GetSelectedPatterns.R'
 BuildVignettes: no
-Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0)
+Imports: Rcpp (>= 0.12.11), RcppEigen (>= 0.3.2.9.0), BH (<= 1.87.0-1)
 LinkingTo: Rcpp,RcppEigen,BH
 SystemRequirements: c++14
 Roxygen: list(wrap=FALSE)
