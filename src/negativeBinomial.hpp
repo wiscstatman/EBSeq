@@ -104,9 +104,9 @@ namespace EBS
                         size_t Q1 = rmNA.size() / 4;
                         size_t Q2 = rmNA.size() * 3 / 4;
                         
-                        std::nth_element(rmNA.begin(),          rmNA.begin() + Q1, rmNA.end());
+                        std::nth_element(rmNA.begin(), rmNA.begin() + Q1, rmNA.end());
                         
-                        std::nth_element(rmNA.begin() + Q1 + 1,          rmNA.begin() + Q2, rmNA.end());
+                        std::nth_element(rmNA.begin() + Q1 + 1, rmNA.begin() + Q2, rmNA.end());
                         
                         Float q25 = rmNA[Q1];
                         
@@ -268,14 +268,12 @@ namespace EBS
             
             // threshold for shrinkage
             _shrinkthre = sthre;
+
+            // shrinkage flag
+            _sflag = true;
             
             // filter threshold for low expression subtypes
             _filter = filter;
-            
-            // resize mde matrix as K by K
-            //_mde.resize(_sum.cols(),_sum.cols());
-            
-            //_mde.fill(1.0 / 2);
             
             // get promising DE pattern
             if(!_has_user_specified_parti){
@@ -317,21 +315,6 @@ namespace EBS
             
             return (_kernel * _p).sum();
         }
-        
-//        void oneRunUpdate()
-//        {
-//            //updateMDE();
-//
-//            // then given p and dep update alpha and beta
-//            gradientAscent();
-//
-//            kernel();
-//
-//            posterior();
-//
-//            updateP();
-//        }
-        
         
         size_t DEPsize()
         {
@@ -379,11 +362,6 @@ namespace EBS
         {
             return _kernel;
         }
-        
-//        COUNTS getMDE()
-//        {
-//            return _mde;
-//        }
         
         Float getALP()
         {
@@ -445,135 +423,6 @@ namespace EBS
         // only to be called in init genelevel depat
         
         typedef Eigen::Block<COUNTS,1> ROW;
-//        std::vector<std::vector<int>> DEpatGene(ROW&& mean, ROW&& cs, ROW&& rs,
-//                                                std::vector<int>& sz, size_t& K,
-//                                                Float& alpha, Float& beta, Float& filter,
-//                                                Float& threshold, int& uncertainty)
-//        {
-//
-//            std::vector<Float> abslogRatio(K - 1);
-//
-//            std::vector<int> baseClus(K);
-//
-//            std::vector<std::vector<int>> res;
-//
-//            auto ord = helper::sortIndexes<ROW>(mean);
-//
-//            auto ord2 = helper::sortIndexes2<ROW>(mean);
-//
-//            baseClus[0] = 1;
-//
-//            for(size_t j = 1; j < K; j++)
-//            {
-//                // position for j-1th and jth subtypes
-//                auto o1 = ord[j - 1];
-//
-//                auto o2 = ord[j];
-//
-//                Float tmp = kernel2case(cs(o1),cs(o2),rs(o1),rs(o2)
-//                                        ,sz[o1],sz[o2],alpha,beta,filter);
-//
-//                abslogRatio[j - 1] = abs(tmp);
-//
-//                //  more favorable for equal mean
-//                if(tmp > 0)
-//                {
-//                    baseClus[j] = baseClus[j - 1];
-//                }
-//                else
-//                {
-//                    // DE start a new cluster
-//                    baseClus[j] = baseClus[j - 1] + 1;
-//                }
-//
-//            }
-//
-//
-//            auto tmpOrd = helper::sortIndexes<std::vector<Float>>(abslogRatio);
-//
-//            auto baseBit = partition::mapToBit(baseClus);
-//
-//
-//
-//            equalHandle(baseBit, abslogRatio, cs, rs,
-//                        alpha, beta, _threshold, _filter, sz);
-//
-//
-//
-//
-//            int localUC = 0;
-//
-//            for(auto score:abslogRatio)
-//            {
-//                if(score < threshold)
-//                {
-//                    localUC++;
-//                }
-//            }
-//
-////            _guc.push_back(localUC);
-//
-//            localUC = (localUC < uncertainty) ? localUC : uncertainty;
-//
-//            if(localUC < 1)
-//            {
-//
-//                auto newClusOr = baseClus;
-//
-//                for(size_t iter = 0; iter < ord2.size(); iter++)
-//                {
-//                    newClusOr[iter] = baseClus[ord2[iter]];
-//                }
-//
-//                auto newClusOrd = partition::reorder(newClusOr);
-//
-//                res.push_back(newClusOrd);
-//
-//                return res;
-//            }
-//
-//            auto pBit = partition::genBit(localUC);
-//
-//            // get promising DE pattern
-//            for(auto x:pBit)
-//            {
-//
-//                auto newBit = baseBit;
-//
-//                for(int t = 0; t < _uncertainty; t++)
-//                {
-//                    auto tmpJ = tmpOrd[t];
-//
-//                    newBit[tmpJ] = x[t];
-//                }
-//
-//                auto newClus = partition::bitToPart(newBit);
-//
-//                auto newClusOr = newClus;
-//
-//                for(size_t iter = 0; iter < ord2.size(); iter++)
-//                {
-//                    newClusOr[iter] = newClus[ord2[iter]];
-//                }
-//
-//                std::vector<int> newClusOrd = partition::reorder(newClusOr);
-//
-////                auto sClus = partition::toString<std::vector<int>>(newClusOrd);
-//
-////                if(dep.count(sClus) < 1)
-////                {
-////                    dep.insert(sClus);
-////
-////                    _dep.push_back(newClusOrd);
-////
-////                    _pat.push_back(partition::toMatrix(newClusOrd));
-////                }
-//
-//                res.push_back(newClusOrd);
-//
-//            }
-//            return res;
-//        }
         
         // only to be called in init
         void DEpat()
@@ -584,32 +433,6 @@ namespace EBS
             
             // DE patterns to be considered
             std::set<std::string> dep;
-            
-//            tbb::parallel_for(blocked_range<size_t>(0,G), DEpatGene());
-//
-//            for(size_t i = 0; i < G; i++)
-//            {
-//
-//                Rcpp::Rcout << "gene " << i << "\n";
-//
-//                auto res = DEpatGene(_mean.row(i), _sum.row(i), _rsum.row(i),
-//                                     _clusinfo.size, K, _alpha, _beta(i),_filter,
-//                                     _threshold,_uncertainty);
-//
-//                for(auto newClusOrd:res)
-//                {
-//                    std::string sClus = partition::toString<std::vector<int>>(newClusOrd);
-//
-//                    if(dep.count(sClus) < 1)
-//                    {
-//                        dep.insert(sClus);
-//
-//                        _dep.push_back(newClusOrd);
-//
-//                        _pat.push_back(partition::toMatrix(newClusOrd));
-//                    }
-//                }
-//            }
             
             std::vector<Float> abslogRatio(K - 1);
             
@@ -641,18 +464,6 @@ namespace EBS
                     Float r1 = _rsum(i,o1);
                     
                     Float r2 = _rsum(i,o2);
-                    
-                    // ratio of EE and DE prior predictive functions
-                    //                    Float use, marginal;
-                    //
-                    //                    if(o1 < o2)
-                    //                        use = _mde(o1,o2);
-                    //                    else
-                    //                        use = _mde(o2,o1);
-                    
-                    //                    marginal = use / (1 - use);
-                    
-                    //                    Float tmp = kernel2case(s1,s2,r1,r2,n1,n2,i) + log(marginal);
                     
                     Float tmp = kernel2case(s1,s2,r1,r2,n1,n2,_alpha,_beta(i),_filter);
                     
@@ -711,11 +522,6 @@ namespace EBS
                         localUC++;
                     }
                 }
-                
-                //                while(abslogRatio[localUC] < _threshold)
-                //                {
-                //                    localUC++;
-                //                }
                 
                 _guc.push_back(localUC);
                 
@@ -845,45 +651,58 @@ namespace EBS
             if(_has_user_specified_parti){
                 return;
             }
-            
-            std::vector<std::vector<int>> newDep;
-            
-            std::vector<COUNTS> newPat;
-            
-            
-            for(size_t i = 0; i < _dep.size(); i++)
+
+            // can have empty newDep if _shrinkthre is too big
+            if (_sflag)
             {
-                if(_p(i) > _shrinkthre)
+                std::vector<std::vector<int>> newDep;
+            
+                std::vector<COUNTS> newPat;
+            
+                for(size_t i = 0; i < _dep.size(); i++)
                 {
-                    newDep.push_back(_dep[i]);
-                    
-                    newPat.push_back(_pat[i]);
+                    if(_p(i) > _shrinkthre)
+                    {
+                        newDep.push_back(_dep[i]);
+                        
+                        newPat.push_back(_pat[i]);
+                    }
                 }
-            }
             
-            Eigen::VectorXd newP;
-            
-            newP.resize(newDep.size());
-            
-            size_t start = 0;
-            
-            for(size_t i = 0; i < _dep.size(); i++)
-            {
-                if(_p(i) > _shrinkthre)
+
+                if (newPat.size() < 2)
                 {
-                    newP(start) = _p(i);
-                    
-                    start++;
+                    Rcpp::Rcout << "too few DE patterns after shrinkage, please decrease the sthre parameter\n";
+                    Rcpp::Rcout << "skip the shrinkage part...\n";
+                    _sflag = false;
+                    return;
                 }
+            
+
+                Eigen::VectorXd newP;
+            
+                newP.resize(newDep.size());
+            
+                size_t start = 0;
+                
+                for(size_t i = 0; i < _dep.size(); i++)
+                {
+                    if(_p(i) > _shrinkthre)
+                    {
+                        newP(start) = _p(i);
+                        
+                        start++;
+                    }
+                }
+            
+                newP = newP / newP.sum();
+                
+                std::swap(_dep,newDep);
+                
+                std::swap(_pat,newPat);
+                
+                _p = newP;
             }
-            
-            newP = newP / newP.sum();
-            
-            std::swap(_dep,newDep);
-            
-            std::swap(_pat,newPat);
-            
-            _p = newP;
         }
         
         Float kernel2case(Float& s1, Float& s2, Float& r1, Float& r2,
@@ -936,11 +755,11 @@ namespace EBS
             COUNTS alpDRV(G,npat);
 
             COUNTS betaDRV(G,npat);
-
+	
             for(size_t i = 0; i < npat; i++)
             {
                 COUNTS _csum = _sum * _pat[i];
-                
+               
                 COUNTS rsum = _rsum * _pat[i];
 
                 COUNTS A = (rsum.array() + _alpha).matrix();
@@ -965,9 +784,7 @@ namespace EBS
             }
 
             auto tmp1 = _alpha + _lrate[0] * (alpDRV * _p).sum();
-            
-            //auto tmp2 = _beta + _lrate[1] * (betaDRV.array() * _post.array()).matrix().rowwise().sum();
-            
+                        
             Eigen::VectorXd tmp2;
             
             if(_ng < G)
@@ -1036,28 +853,6 @@ namespace EBS
             _p = _post.colwise().sum() / _post.sum();
         }
         
-//        void updateMDE()
-//        {
-//            _mde.fill(0);
-//
-//            size_t K = _sum.cols();
-//
-//            for(size_t i = 0; i < K; i++)
-//            {
-//                for(size_t j = i; j < K; j++)
-//                {
-//                    for(size_t p = 0; p < _dep.size(); p++)
-//                    {
-//                        if(_dep[p][i] == _dep[p][j])
-//                        {
-//                            _mde(i,j) += _p[p];
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
-        
         
         
     private:
@@ -1110,6 +905,9 @@ namespace EBS
         
         // positive threshold for iterative shrinkage size of de patterns
         Float _shrinkthre;
+
+        // shrinkage flag, indicate to skip the shrinkage step if user input too big shrinkage threshold
+        bool _sflag;
         
         // gene level uncertainty
         std::vector<size_t> _guc;
@@ -1122,9 +920,6 @@ namespace EBS
         
         // kernel matrix
         COUNTS _kernel;
-        
-        // marginal for two subtypes being ED or DD
-//        COUNTS _mde;
         
         // posterior prob
         COUNTS _post;

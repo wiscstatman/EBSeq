@@ -36,10 +36,14 @@ thre = log(2), sthre = 0.001, filter = 10, stopthre = 1e-3, nequal = 2) {
     {
         stop("incorrect length of size factor")
     }
-    if(is.null(AllParti)){
+    if(is.null(AllParti))
+    {
         AllParti = matrix(0,nrow=1,ncol=length(levels(conditions)))
     }
-    
+    if(sthre >= 1)
+    {
+        stop("too big sthreshold, as only DE patterns above this threshold will be selected")
+    }
     
     .Call('EBSeq',
     scExpMatrix = data,
