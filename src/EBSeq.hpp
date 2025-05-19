@@ -63,9 +63,7 @@ namespace EBS
                     Iter++;
                     
                     first = false;
-                    
-//                    Rcpp::Rcout << "Objective = " << lastOBJ << "\n";
-                    
+                                        
                     Rcpp::Rcout << "Initial number of DE patterns = " <<  DEPsize() << "\n";
                     
                     continue;
@@ -84,10 +82,7 @@ namespace EBS
                     changeRatio = -changeRatio;
                 }
                 
-                lastOBJ = getOBJ();
-                
-//                Rcpp::Rcout << "Objective = " << lastOBJ << "\n";
-                
+                lastOBJ = getOBJ();                
                 
                 Iter++;
             }
