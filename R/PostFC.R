@@ -1,8 +1,16 @@
 PostFC=function(EBoutput, SmallNum=.01) {
 	if(ncol(EBoutput$Mean) != 2)
 		stop("The input doesn't seem like an output from EBTest")
-	GeneRealMeanC1= EBoutput$Mean[,1]
-	GeneRealMeanC2= EBoutput$Mean[,2]
+
+	if(is.list(EBoutput$Mean))
+	{
+		GeneRealMeanC1= EBoutput$Mean[[1]]
+		GeneRealMeanC2= EBoutput$Mean[[2]]
+	} else 
+	{
+		GeneRealMeanC1= EBoutput$Mean[,1]
+		GeneRealMeanC2= EBoutput$Mean[,2]
+	}
 	GeneRealMeanC1Plus=GeneRealMeanC1+SmallNum
 	GeneRealMeanC2Plus=GeneRealMeanC2+SmallNum
 	GeneRealMean=(GeneRealMeanC1+GeneRealMeanC2)/2
@@ -12,9 +20,18 @@ PostFC=function(EBoutput, SmallNum=.01) {
 	GeneR=unlist(EBoutput$RList)
 	GeneR[GeneR<=0 | is.na(GeneR)]=GeneRealMean[GeneR<=0 | is.na(GeneR)]*.99/.01
 
-	GeneAlpha = EBoutput$Alpha
+	
+	GeneAlpha = EBoutput$Alpha[length(EBoutput$Alpha)]
     
-	GeneBeta = EBoutput$Beta
+	if(length(EBoutput$Beta) != length(GeneRealMeanC1))
+	{
+		local_n = nrow(EBoutput$Beta)
+		GeneBeta = sapply(EBoutput$Iso,function(x) EBoutput$Beta[5,x])
+	} else
+	{
+		GeneBeta = EBoutput$Beta
+	}
+	
 	  
 		# Post alpha P_a_C1= alpha + r_C1 * n_C1
 	  # Post beta P_b_C1= beta + Mean_C1 * n_C1
@@ -40,7 +57,8 @@ PostFC=function(EBoutput, SmallNum=.01) {
 	GenePostFC = ((1-GenePostQC1)/(1-GenePostQC2))*(GenePostQC2/GenePostQC1)
     
 	Out=list(PostFC=GenePostFC, RealFC=GeneRealFC,
-					 Direction=paste(levels(EBoutput$Conditions)[1],"Over", levels(EBoutput$Conditions)[2])
-					 )
+		Direction=paste(levels(EBoutput$Conditions)[1],"Over", 
+		levels(EBoutput$Conditions)[2])
+		)
 
 }
