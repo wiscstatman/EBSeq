@@ -23,7 +23,7 @@ PostFC=function(EBoutput, SmallNum=.01) {
 	
 	GeneAlpha = EBoutput$Alpha[length(EBoutput$Alpha)]
     
-	if(!is.null(EBoutput$Beta))
+	if(!is.null(dim(EBoutput$Beta)))
 	{
 		local_n = nrow(EBoutput$Beta)
 		GeneBeta = sapply(EBoutput$Iso,function(x) EBoutput$Beta[local_n,x])
