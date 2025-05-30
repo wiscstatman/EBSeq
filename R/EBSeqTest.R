@@ -22,7 +22,7 @@ thre = log(2), sthre = 0.001, filter = 10, stopthre = 1e-3, nequal = 2) {
     }
     if(length(iLabel) == 1 && iLabel == 1)
     {
-        iLabel = 1:nrow(data)
+        iLabel = rep(1,nrow(data))
     }
     if(length(iLabel) != nrow(data))
     {
