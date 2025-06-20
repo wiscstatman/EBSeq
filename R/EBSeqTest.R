@@ -20,6 +20,10 @@ thre = 1.15, sthre = 0, filter = 1, stopthre = 1e-4, nequal = 0) {
     {
         beta = rep(2,nrow(data))
     }
+    if(is.atomic(beta) && length(beta) == 1)
+    {
+        beta = rep(beta,nrow(data))
+    }
     if(length(iLabel) == 1 && iLabel == 1)
     {
         iLabel = rep(1,nrow(data))
@@ -48,6 +52,10 @@ thre = 1.15, sthre = 0, filter = 1, stopthre = 1e-4, nequal = 0) {
     {
         # default to disable equal handle 
         nequal = length(levels(conditions)) - 1
+    }
+    if(!is.atomic(alpha) || length(alpha) != 1)
+    {
+       stop("error, hyperparameter alpha should be scalar")
     }
     .Call('EBSeq',
     scExpMatrix = data,
