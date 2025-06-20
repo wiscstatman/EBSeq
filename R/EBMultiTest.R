@@ -1,6 +1,6 @@
 EBMultiTest <-
 function(Data,NgVector=NULL,Conditions, sizeFactors, uc = 0, AllParti=NULL,fast = T,Alpha=NULL, Beta=NULL, Qtrm=1, QtrmCut=0
-,maxround = 50, step1 = 1e-6,step2 = 1e-4, thre = 1.15, sthre = 0, filter = 10, stopthre = 1e-4, nequal = 0)
+,maxround = 50, step1 = 1e-6,step2 = 1e-4, thre = 1.15, sthre = 0, filter = 1, stopthre = 1e-4, nequal = 0)
 {
  expect_is(sizeFactors, c("numeric","integer"))
  expect_is(maxround,  c("numeric","integer"))
