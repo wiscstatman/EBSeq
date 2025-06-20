@@ -3,7 +3,7 @@
 \title{EBSeq core}
 \usage{
 EBSeqTest(data, conditions, uc, AllParti = NULL, iLabel = 1, sizefactor = 1,
-  iter = 50, alpha = 0.4, beta = 0, step1 = 1e-06, step2 = 1e-4,
+  iter = 50, alpha = 0.4, beta = 0, step1 = 1e-6, step2 = 1e-4,
   thre = 1.15, sthre = 0, filter = 10, stopthre = 1e-4, nequal = 0)
 }
 \arguments{
