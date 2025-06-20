@@ -3,8 +3,8 @@
 \title{EBSeq core}
 \usage{
 EBSeqTest(data, conditions, uc, AllParti = NULL, iLabel = 1, sizefactor = 1,
-  iter = 50, alpha = 0.4, beta = 0, step1 = 1e-06, step2 = 0.01,
-  thre = log(2), sthre = 0.001, filter = 10, stopthre = 0.001, nequal = 2)
+  iter = 50, alpha = 0.4, beta = 0, step1 = 1e-06, step2 = 1e-4,
+  thre = 1.15, sthre = 0, filter = 10, stopthre = 1e-4, nequal = 0)
 }
 \arguments{
 \item{data}{A data matrix contains expression values for each transcript (gene or isoform level). In which rows should be transcripts and columns should be samples. For single cell data, normalized counts are required}
