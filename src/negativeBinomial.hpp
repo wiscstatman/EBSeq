@@ -743,6 +743,8 @@ namespace EBS
                 _kernel.col(i) = res.rowwise().sum();
                 
             }
+
+            std::cout << "Total kernel sum: " << _kernel.sum() << std::endl;
             
         }
         
