@@ -757,7 +757,8 @@ namespace EBS
             COUNTS alpDRV(G,npat);
 
             COUNTS betaDRV(G,npat);
-	
+
+            #pragma omp parallel for
             for(size_t i = 0; i < npat; i++)
             {
                 COUNTS _csum = _sum * _pat[i];
