@@ -296,8 +296,6 @@ namespace EBS
             _p.resize(n);
             
             _p.fill(1.0 / n);
-            
-            std::cout << "check r sum " << _rsum(0,0) << std::endl;
         }
         
         inline Float lbeta(Float x,Float y)
@@ -745,7 +743,7 @@ namespace EBS
                 
             }
 
-            std::cout << "Total kernel sum: " << _kernel.sum() << std::endl;
+            std::cout << "pat 16 and pat 34: " << _kernel(0,15) << "," << _kernel(0,34) << std::endl;
             
         }
         
