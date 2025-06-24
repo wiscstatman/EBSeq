@@ -722,7 +722,8 @@ namespace EBS
         {
             // adjust dim of kernel matrix
             _kernel.resize(_sum.rows(),_pat.size());
-            
+
+            #pragma omp parallel for
             for(size_t i = 0; i < _pat.size(); i++)
             {
                 COUNTS _csum = _sum * _pat[i];
@@ -735,6 +736,10 @@ namespace EBS
                 
                 COUNTS res = lbeta(A,B);
                 
+                if(i == 15)
+                {
+                    std::cout << "pat 16 " << (res.rowwise().sum())[0] << std::endl;
+                }
                 res = (res.array() - boost::math::lgamma(_alpha)).matrix();
                 
                 res =  res.colwise() - (_beta.unaryExpr<Float(*)(Float)>(&boost::math::lgamma) + (_alpha + _beta.array()).matrix().unaryExpr<Float(*)(Float)>(&boost::math::lgamma));
