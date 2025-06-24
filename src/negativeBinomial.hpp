@@ -297,7 +297,7 @@ namespace EBS
             
             _p.fill(1.0 / n);
             
-            std::cout << "check r sum " << r(0,0) << std::endl;
+            std::cout << "check r sum " << _rsum(0,0) << std::endl;
         }
         
         inline Float lbeta(Float x,Float y)
