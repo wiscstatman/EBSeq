@@ -748,7 +748,6 @@ namespace EBS
                 
             }
             
-            std::cout << "pat 16 " << _kernel(0,15) << "," << _kernel(0,33) << std::endl; 
         }
         
         void gradientAscent()
@@ -851,8 +850,6 @@ namespace EBS
             COUNTS div = total * _p.transpose();
             
             _post = (_post.array() * div.array()).matrix();
-            
-            std::cout << "post " << _post(0,15) << "," << _post(0,33) << std::endl;
         }
         
         void updateP()
