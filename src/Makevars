@@ -5,14 +5,9 @@
 
 ## With R 3.1.0 or later, you can uncomment the following line to tell R to 
 ## enable compilation with C++11 (or even C++14) where available
-ifeq ($(shell uname), Darwin)
-CXX_STD = /opt/homebrew/opt/llvm/bin/clang++ -std=gnu++14
-PKG_CPPFLAGS += -fopenmp -I/opt/homebrew/opt/llvm/include
-LDFLAGS += -L/opt/homebrew/opt/llvm/lib -lomp
-endif
+CXX_STD = CXX14
 
 ifeq ($(shell uname), Linux)
-CXX_STD = CXX14
 PKG_CPPFLAGS += -fopenmp
 LDFLAGS += -fopenmp
 endif
