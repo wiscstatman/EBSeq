@@ -9,11 +9,11 @@ CXX_STD = CXX14
 
 ifeq ($(shell uname), Darwin)
 CXX = /opt/homebrew/opt/llvm/bin/clang++ -std=gnu++14
-CXXFLAGS += -fopenmp -I/opt/homebrew/opt/llvm/include
+PKG_CPPFLAGS += -fopenmp -I/opt/homebrew/opt/llvm/include
 LDFLAGS += -L/opt/homebrew/opt/llvm/lib -lomp
 endif
 
 ifeq ($(shell uname), Linux)
-CXXFLAGS += -fopenmp
+PKG_CPPFLAGS += -fopenmp
 LDFLAGS += -fopenmp
 endif
