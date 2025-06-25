@@ -742,17 +742,13 @@ namespace EBS
                 
                 res = (res.array() - boost::math::lgamma(_alpha)).matrix();
                 
-                res =  res.colwise() - (_beta.unaryExpr<Float(*)(Float)>(&boost::math::lgamma) + (_alpha + _beta.array()).matrix().unaryExpr<Float(*)(Float)>(&boost::math::lgamma));
-
-                if(i == 0)
-                {
-                    std::cout << "lbeta " << _alpha << "," << _beta(0) << "," << (_alpha + _beta.array()).matrix().unaryExpr<Float(*)(Float)>(&boost::math::lgamma)(0) << std::endl;
-                }
+                res =  res.colwise() - (_beta.unaryExpr<Float(*)(Float)>(&boost::math::lgamma) - (_alpha + _beta.array()).matrix().unaryExpr<Float(*)(Float)>(&boost::math::lgamma));
     
                 _kernel.col(i) = res.rowwise().sum();
                 
             }
             
+            std::cout << "pat 16 " << _kernel(0,15) << "," << _kernal(0,33) << std::endl; 
         }
         
         void gradientAscent()
