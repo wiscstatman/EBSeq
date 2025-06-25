@@ -7,7 +7,9 @@
 #include <boost/math/special_functions/gamma.hpp>
 #include <boost/math/special_functions/digamma.hpp>
 #include <set>
-//#include <tbb/tbb.h>
+#include <omp.h>
+
+// [[Rcpp::plugins(openmp)]]
 
 namespace EBS
 {
