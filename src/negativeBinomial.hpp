@@ -748,7 +748,7 @@ namespace EBS
                 
             }
             
-            std::cout << "pat 16 " << _kernel(0,15) << "," << _kernal(0,33) << std::endl; 
+            std::cout << "pat 16 " << _kernel(0,15) << "," << _kernel(0,33) << std::endl; 
         }
         
         void gradientAscent()
