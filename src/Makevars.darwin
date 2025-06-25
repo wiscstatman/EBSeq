@@ -1,0 +1,3 @@
+CXX = /usr/local/opt/llvm/bin/clang++ -std=gnu++14
+CXXFLAGS += -fopenmp -I/usr/local/opt/llvm/include
+LDFLAGS += -L/usr/local/opt/llvm/lib -lomp

@@ -300,6 +300,13 @@ namespace EBS
             _p.resize(n);
             
             _p.fill(1.0 / n);
+
+            #ifdef _OPENMP
+                std::cout << "OpenMP is enabled." << std::endl;
+                std::cout << "Using " << omp_get_max_threads() << " threads." << std::endl;
+            #else
+                std::cout << "OpenMP is NOT enabled." << std::endl;
+            #endif
         }
         
         inline Float lbeta(Float x,Float y)
