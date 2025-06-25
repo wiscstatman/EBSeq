@@ -1,3 +1,10 @@
+CHANGES IN VERSION 2.6.0
+------------------------
+    o fix a bug in the derivative of hyperparameter beta
+	o fix a bug in the likehood calculation (for the beta parameter part)
+	o support openMP parallelization on Linux OS
+
+
 CHANGES IN VERSION 2.5.2
 ------------------------
     o Using c++14 for the updated [BH] (https://cran.r-project.org/web/packages/BH/index.html) dependency, and restrict BH version <= 1.87.0-1 to prevent higher version C++ requirement in the future
