@@ -7,7 +7,9 @@
 #include <boost/math/special_functions/gamma.hpp>
 #include <boost/math/special_functions/digamma.hpp>
 #include <set>
-#include <omp.h>
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
 
 // [[Rcpp::plugins(openmp)]]
 
