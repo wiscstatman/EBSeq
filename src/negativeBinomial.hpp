@@ -788,7 +788,7 @@ namespace EBS
 
                 COUNTS resBeta = B.unaryExpr<Float(*)(Float)>(&(boost::math::digamma)) - C;
 
-                resBeta = resBeta.colwise() - (_beta.unaryExpr<Float(*)(Float)>(&(boost::math::digamma)) + D);
+                resBeta = resBeta.colwise() - (_beta.unaryExpr<Float(*)(Float)>(&(boost::math::digamma)) - D);
 
                 alpDRV.col(i) = resAlpha.rowwise().sum();
 
