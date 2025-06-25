@@ -736,10 +736,6 @@ namespace EBS
                 
                 COUNTS res = lbeta(A,B);
                 
-                if(i == 15)
-                {
-                    std::cout << "pat 16 " << (res.rowwise().sum())[0] << std::endl;
-                }
                 res = (res.array() - boost::math::lgamma(_alpha)).matrix();
                 
                 res =  res.colwise() - (_beta.unaryExpr<Float(*)(Float)>(&boost::math::lgamma) + (_alpha + _beta.array()).matrix().unaryExpr<Float(*)(Float)>(&boost::math::lgamma));
