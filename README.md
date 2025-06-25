@@ -102,3 +102,6 @@ MultiOut = EBMultiTest(MultiGeneMat,Conditions=Conditions,AllParti = Parti,
 MultiPP = GetMultiPP(MultiOut)
 ```             
 
+# OpenMP Parallelization for Speed-Up (Linux Only)
+
+OpenMP parallelization is enabled on Linux systems to further accelerate computations. For optimal performance, it is recommended to use this package on a Linux OS.
