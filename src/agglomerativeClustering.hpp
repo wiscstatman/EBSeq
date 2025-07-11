@@ -15,14 +15,14 @@ namespace EBS
     {
     public:
     	struct Node
-		{
-    		Float rs;
-    		Float cs;
+        {
+            Float rs;
+            Float cs;
             Float distToNext;
             int sz;
-    		std::vector<int> indexSet;
+            std::vector<int> indexSet;
             Node *prev, *next;
-		};
+        };
         
         template<typename ROW>
         static Node* createNode(ROW& csum, ROW& rsum,std::vector<Float>& logRatio, int pos, int size)
@@ -59,12 +59,12 @@ namespace EBS
             
             return head;
         }
-    	
-    	template<typename ROW>
+
+        template<typename ROW>
         static void hclust(ROW& csum, ROW& rsum,
-                           std::vector<Float>& logRatio, int start, int end, Float alpha, Float beta, Float thre1, Float thre2, std::vector<int>& sizes)
-		{
-           
+                            std::vector<Float>& logRatio, int start, int end, Float alpha, Float beta, Float thre1, Float thre2, std::vector<int>& sizes)
+        {
+            
             
             auto head = createNodeList<ROW>(csum,rsum,logRatio,start,end,sizes);
             
@@ -129,7 +129,7 @@ namespace EBS
             
             
             return;
-		}
+        }
         
         //merge two nodes and delete right node
         static void merge(Node* left, Float alpha, Float beta, Float filter)
