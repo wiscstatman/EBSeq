@@ -104,7 +104,7 @@ MultiPP = GetMultiPP(MultiOut)
 
 # OpenMP Parallelization for Speed-Up
 
-OpenMP parallelization is supported on Linux systems, Windows and on macOS when the OpenMP runtime library is available. This can substantially accelerate computations, especially for gene-level parallel operations.
+OpenMP parallelization is supported on Linux systems, Windows and macOS when the OpenMP runtime library is available. This can substantially accelerate computations, especially for gene-level parallel operations.
 
 On Linux and Windows, OpenMP is enabled automatically during package installation when supported by the system compiler.
 
