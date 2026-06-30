@@ -13,8 +13,7 @@ LDFLAGS += -fopenmp
 endif
 
 ifeq ($(UNAME), Darwin)
-BREW := $(shell command -v brew 2>/dev/null)
-OMP_PREFIX := $(shell if command -v brew >/dev/null 2>&1; then brew --prefix libomp 2>/dev/null; fi)
+OMP_PREFIX := $(firstword $(wildcard /opt/homebrew/opt/libomp /usr/local/opt/libomp))
 
 ifneq ($(OMP_PREFIX),)
 ifneq ($(wildcard $(OMP_PREFIX)/include/omp.h),)
