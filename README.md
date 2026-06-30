@@ -104,9 +104,9 @@ MultiPP = GetMultiPP(MultiOut)
 
 # OpenMP Parallelization for Speed-Up
 
-OpenMP parallelization is supported on Linux systems and on macOS when the OpenMP runtime library is available. This can substantially accelerate computations, especially for gene-level parallel operations.
+OpenMP parallelization is supported on Linux systems, Windows and on macOS when the OpenMP runtime library is available. This can substantially accelerate computations, especially for gene-level parallel operations.
 
-On Linux, OpenMP is enabled automatically during package installation when supported by the system compiler.
+On Linux and Windows, OpenMP is enabled automatically during package installation when supported by the system compiler.
 
 On macOS, EBSeq will enable OpenMP if `libomp` is installed. To enable parallel execution on macOS, install `libomp` before installing EBSeq:
 
