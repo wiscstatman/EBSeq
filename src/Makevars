@@ -11,3 +11,14 @@ ifeq ($(shell uname), Linux)
 PKG_CPPFLAGS += -fopenmp
 LDFLAGS += -fopenmp
 endif
+
+ifeq ($(shell uname), Darwin)
+OMP_PREFIX := $(firstword $(wildcard /opt/homebrew/opt/libomp /usr/local/opt/libomp))
+
+ifneq ($(OMP_PREFIX),)
+ifneq ($(wildcard $(OMP_PREFIX)/include/omp.h),)
+PKG_CPPFLAGS += -Xclang -fopenmp -I$(OMP_PREFIX)/include
+PKG_LIBS += -L$(OMP_PREFIX)/lib -lomp
+endif
+endif
+endif
