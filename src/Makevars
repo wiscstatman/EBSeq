@@ -12,7 +12,7 @@ PKG_CPPFLAGS += -fopenmp
 LDFLAGS += -fopenmp
 endif
 
-ifeq ($(UNAME), Darwin)
+ifeq ($(shell uname), Darwin)
 OMP_PREFIX := $(firstword $(wildcard /opt/homebrew/opt/libomp /usr/local/opt/libomp))
 
 ifneq ($(OMP_PREFIX),)
